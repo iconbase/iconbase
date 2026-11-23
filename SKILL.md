@@ -127,3 +127,56 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 ## 8. 贡献
 
 加图标、改图标、补许可记录 → 见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。构建会替你卡住漏掉的东西:文件没有对应的 `catalog.tsv` 行、品牌没有许可记录、版本目录不存在,都直接报错。
+
+## 9. 如何索引
+
+**一定要动的三处**:
+
+| 动哪里 | 规则 |
+| --- | --- |
+| `icons/<cat>/[v<n>/]<concept>.svg` | 单行、24×24、自包含;文件名 = 概念名(小写连字符) |
+| `catalog.tsv` | `<id>\t<中文>\t<English>` 三列;**只写具体版本的键**(`infra/v0:server`)—— 别名由构建生成,写别名构建报错 |
+| `brands/<cat>-<concept>.md` | 品牌图形才要,见下一节 |
+
+**特殊情况才动**:`versions.json`(版本化分类登记推荐版)、`cats.json`(新建分类)、
+`star.tsv`(每类挑 2 个)、`brands/trademarks.tsv`(画了商标的登记商标权人与状态)、
+`brands/brandish.txt`(名字像品牌的)。
+
+**别名规则**:`<cat>:<concept>` 永远指向该分类当前推荐的版本 —— 别名不进 `catalog.tsv`,
+它是构建生成的。整库搬入的分类(`cats.json` 里 `bulk: true`)不用写 catalog 行。
+
+写完跑 `node scripts/check.mjs` —— 索引对不对、文件有没有对应、版本登记了没有,
+它会一次列全(CI 也跑它)。
+
+## 10. 如何分析
+
+**查的顺序**:① 官方品牌页(官方 SVG/PNG 的直链、条款怎么写)→ ② 商标政策页(允许什么用法、
+要不要申请、有没有改色/留白/最小尺寸限制)→ ③ 素材出处(文件从哪来、著作权什么许可、有没有
+版本号)→ ④ 上游动向(这个图标是不是第三方搬来的、那个库撤没撤、商标方有没有要求撤)。
+
+**记的字段**(`brands/<cat>-<concept>.md` 的头部):
+
+```
+id / title / verdict / source / license / licenseUrl /
+trademarkOwner / trademarkPolicy / restrictions / reviewed
+```
+
+`trademarkPolicy` 填官方政策页 URL —— 页面上会渲染成可点的链接。
+
+**三档结论**:
+
+| verdict | 判据 | 构建行为 |
+| --- | --- | --- |
+| `ok` | 政策明确,我们的用法在许可范围内 | 收录 |
+| `caution` | 收录,但只能指示性引用 | 收录,页面标「谨慎」 |
+| `withheld` | 分析留档,**不发布** | 不进清单,记录留着 |
+
+正文写四件事:查了哪个官方页面、条款怎么写、我们怎么用、什么情况下要下架。
+**「没查到什么」也要写出来**(官方没有公开的政策页、素材直链 403 …)—— 空白不等于没有约束。
+
+**红线**:不改色不改形,只作指示性引用(不暗示背书、不与自有品牌并列成 lockup);
+外部参考只取引喻思路、严禁搬路径形状;抓来的素材只放 /tmp,永不入库。
+
+**什么时候不收**:CC-BY-NC-*(禁商用,与本库「可商用」的承诺冲突)、CC-BY-ND-*(禁改,
+我们压单行算不算改编有争议)、custom(条款各异)、上游撤下了(上游撤 = 品牌方大概率要求不再分发)。
+不收的也要写下来 —— 记进 `si-manifest.json` 的 `excluded`,别悄悄丢。

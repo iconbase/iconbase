@@ -1,114 +1,49 @@
 # 贡献指南
 
-图标数据仓。**只放图标本体与许可记录** —— 评审数据、设计过程、站点代码都不在这儿。
+图标数据仓。加一个图标,动三处就够 —— 细则(字段、判据、命令)在
+[SKILL.md](SKILL.md) 的「如何索引」「如何分析」两节。
 
 ## 加一个图标
 
-### 1. 放文件
-
-```
-icons/<cat>/<concept>.svg            平铺分类(aws / azure / gcp / brand / bootstrap …)
-icons/<cat>/v<n>/<concept>.svg       版本化分类(自绘那批:infra / db / vis / travel …)
-```
-
-规矩:
-
-- **SVG 单行** —— 一行一个 `<svg>`,不能换行。sprite 是按行切的,多行就切坏了。
-  (提交的第三方整库素材可能没格式化过,构建会报出来。)
-- 24×24 viewBox,彩色填充,和同分类的邻居画风一致。
-- 文件名 = 概念名,小写连字符(`disk-array.svg`,不是 `diskArray.svg`)。
-
-### 2. 补索引
-
-`catalog.tsv` 一行一条,制表符分隔:
-
-```
-infra/v0:disk-array	磁盘阵列	Disk Array
-```
-
-- 格式是 `<id>\t<中文>\t<English>` —— **三列**,中英文分开。
-- 版本化分类写**具体版本**的键(`infra/v0:disk-array`)。别名的键(`infra:disk-array`)
-  由构建生成,写进去构建会报错并告诉你该写哪个键。
-- id 跟文件名对得上:`<cat>/v<n>:<concept>` → `icons/<cat>/v<n>/<concept>.svg`。
-
-### 3. 自检
-
 ```sh
-node scripts/check.mjs
+# 1. 放文件:icons/<cat>/[v<n>/]<concept>.svg —— 单行、24×24、自包含
+# 2. 索引:catalog.tsv 加一行 <id>\t<中文>\t<English>
+# 3. 自检:node scripts/check.mjs
 ```
 
-跟 service 仓的构建守同一套规矩(SVG 单行、索引与文件一一对应、分类登记、
-品牌许可记录齐备)。CI 会在每个 PR 上跑它 —— 过了再提。
+- `<id>` 用**具体版本**的键(`infra/v0:server`)。别名(`infra:server`)由构建生成 ——
+  写别名构建会报错并告诉你该写哪个键。
+- 整库搬入的分类不用写 catalog 行(描述自动生成)。
+- `check.mjs` 会一次列全问题:索引与文件对不对得上、版本登没登记、许可记录齐不齐。
 
-### 4. 提 PR
-
-说清三件事:**这图标是什么概念**、**画的是什么(要素)**、**从哪来的(自绘 / 抄的哪个官方素材)**。
+**特殊情况才动**:`versions.json`(版本化分类登记推荐版)、`cats.json`(新建分类)、
+`star.tsv`(每类挑 2 个)。
 
 ## 加一个品牌图标
 
-`brand:` 和 `bootstrap:` 里是**别人的商标**,比普通图标多两道手续:
+别人的商标多两步:
 
-**一、补许可记录** —— `brands/<cat>-<concept>.md`:
+1. 补一份许可记录 `brands/<cat>-<concept>.md` —— 头部记 `id` / `title` / `verdict` /
+   `source` / `license` / `licenseUrl` / `trademarkOwner` / `trademarkPolicy` / `restrictions` /
+   `reviewed`,正文写「查了哪个官方页面、条款怎么写、我们怎么用、什么情况下要下架」。
+   **「没查到什么」也要写出来** —— 空白不等于没有约束。
+2. 在 `brands/trademarks.tsv` 登记商标权人与状态。
 
-```markdown
----
-id: brand:example
-title: Example / 示例
-verdict: ok
-source: 官方素材页的 URL
-license: MIT / Apache-2.0 / 公有领域
-licenseUrl: 条款原文 URL
-trademarkOwner: 商标权人
-trademarkPolicy: 商标政策页 URL
-restrictions: 使用限制(不得暗示背书 / 不得改色改形 / 仅用于指代…)
-reviewed: 2026-11-24
----
+`verdict` 三档:`ok`(政策明确、用法在许可内)/ `caution`(收录但只能指示性引用)/
+`withheld`(留档不发布)。判据见 [SKILL.md](SKILL.md#10-如何分析)。
 
-分析正文:查了哪个官方页面、条款怎么写、我们怎么用、什么情况下要下架。
-```
-
-`verdict` 三档:`ok`(收录)/ `caution`(收录,但只能指示性引用)/ `withheld`(留档不发布)。
-
-**二、登记商标** —— `brands/trademarks.tsv` 加一行:
-
-```
-brand:example	Example Inc.	reviewed	官方 logo,原样使用
-```
-
-格式:`<id>\t<商标权人>\t<reviewed|pending>\t<备注>`。
-
-名字像品牌的图标(名单在 `brands/brandish.txt`)即使没有单独记录,也**必须**在
-`trademarks.tsv` 里登记 —— 构建会拦。
-
-> 记录里也要写清**没查到什么**(比如"官方没有公开的第三方商标政策页")——
-> 空白不等于没有约束。
-
-## 新建分类
-
-1. 在 [`cats.json`](cats.json) 里登记:标题、中英文、出处、许可、说明。
-   商标类还要 `"needsRecord": true`(逐个要许可记录)。
-2. 在 `versions.json` 里定推荐版本(版本化分类)。
-3. `catalog.tsv` 补上每一张。
-4. 整库搬入的第三方库标 `"bulk": true` —— 那类不用一行一个写描述,也不许进 `star.tsv`。
-
-## 画新版本
-
-1. 复制一份到 `icons/<cat>/v1/`(别改老版本,老版本还要留着)。
-2. `catalog.tsv` 补上 `<cat>/v1:<concept>` 的行。
-3. `versions.json` 里那个分类改成 `"v1"` —— 别名跟着走,`v0` 还在。
-
-**推荐版是人的决定**,不是自动取最高版本。新画一版进来,别名先不动;
-等这版真更好了,再改那一行。
+名字像品牌的图标(名单在 `brands/brandish.txt`)**必须**在 `trademarks.tsv` 里登记 ——
+构建会拦。
 
 ## 红线
 
-- **不改厂商的 SVG** —— 云厂商标识原样取用,不缩放不裁剪不改色不改形。
-- **不搬运别人的设计** —— 参考只取"引喻 / 锚点"思路,严禁照搬路径形状。
-- **商标图形不暗示背书** —— 只作指示性引用。
-- **自绘的也别抄** —— `org:` 那族是抽象符号,不能跟任何公司的商标图形撞脸。
-- **抓来的素材不进库** —— 第三方素材要进库,必须带许可记录与出处。
+- 厂商与品牌的标识**不改色不改形**,只作指示性引用(不暗示背书、不与自有品牌并列成 lockup)
+- 外部参考只取「引喻 / 锚点」思路,**严禁搬运路径形状**
+- 抓来的素材只放 /tmp,**永不入库**(除非带着许可记录与出处)
+- 禁商用(CC-BY-NC)、禁改(CC-BY-ND)、条款各异的素材**不收** —— 理由见
+  [SKILL.md](SKILL.md#10-如何分析)
 
 ## 许可
 
-本仓自绘图标与数据:Apache-2.0(见 [`LICENSE`](LICENSE))。
-第三方素材各按其条款,见 [`NOTICE.md`](NOTICE.md) 与 [`licenses/`](licenses/)。
+本仓自绘图标与数据:Apache-2.0(见 [`LICENSE`](LICENSE))。第三方素材各按其条款,
+见 [`NOTICE.md`](NOTICE.md) 与 [`docs/third-party.md`](docs/third-party.md)。
