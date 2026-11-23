@@ -71,8 +71,8 @@ gcp:sql	关系型数据库	Cloud SQL
 bootstrap:alipay	支付宝	Alipay
 bootstrap:github	GitHub	GitHub
 bootstrap:wechat	微信	WeChat
-brand:kubernetes	Kubernetes	Kubernetes
-brand:prometheus	Prometheus	Prometheus
+si:kubernetes	Kubernetes	Kubernetes
+si:prometheus	Prometheus	Prometheus
 infra/v0:api	接口	API
 infra/v0:browser	浏览器	Browser
 infra/v0:cloud	云	Cloud
@@ -266,9 +266,9 @@ food/v0:rice	米饭	Rice
 food/v0:noodle	面条	Noodles
 food/v0:fish	鱼(食材)	Fish
 brand:openai	OpenAI	OpenAI
-brand:anthropic	Anthropic	Anthropic
-brand:claude	Claude	Claude
-brand:deepseek	DeepSeek	DeepSeek
+si:anthropic	Anthropic	Anthropic
+si:claude	Claude	Claude
+si:deepseek	DeepSeek	DeepSeek
 brand:gemini	Google Gemini	Google Gemini
 brand:mistral	Mistral AI	Mistral AI
 brand:chatgpt	ChatGPT	ChatGPT

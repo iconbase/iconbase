@@ -2,8 +2,8 @@
  "source": "simple-icons",
  "version": "16.38.1",
  "license": "CC0-1.0(SI 包级);个别图标另有许可,见各条",
- "importedAt": "2026-11-23T22:00:01.111Z",
- "count": 3428,
+ "importedAt": "2026-11-23T22:01:10.448Z",
+ "count": 3436,
  "icons": {
   "42": {
    "title": "42",
@@ -845,6 +845,14 @@
    "guidelines": null,
    "hex": "FF4747"
   },
+  "alipay": {
+   "title": "Alipay",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://global.alipay.com/docs/ac/website_hk/design",
+   "guidelines": "https://global.alipay.com/docs/ac/website_hk/design",
+   "hex": "1677FF"
+  },
   "alist": {
    "title": "AList",
    "license": "CC0-1.0",
@@ -1148,6 +1156,14 @@
    "source": "https://github.com/AntennaPod/Branding/blob/115dc180bb562eab4e5edc55eccfbdc11cd56873/Logo/logo-icon-white-out.svg",
    "guidelines": null,
    "hex": "364FF3"
+  },
+  "anthropic": {
+   "title": "Anthropic",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://www.anthropic.com",
+   "guidelines": null,
+   "hex": "191919"
   },
   "antv": {
    "title": "AntV",
@@ -4221,6 +4237,14 @@
    "guidelines": null,
    "hex": "93FF9E"
   },
+  "claude": {
+   "title": "Claude",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://claude.ai",
+   "guidelines": null,
+   "hex": "D97757"
+  },
   "claudecode": {
    "title": "Claude Code",
    "license": "CC0-1.0",
@@ -5844,6 +5868,14 @@
    "source": "https://deepnote.com",
    "guidelines": null,
    "hex": "3793EF"
+  },
+  "deepseek": {
+   "title": "DeepSeek",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://www.deepseek.com",
+   "guidelines": null,
+   "hex": "5786FE"
   },
   "deezer": {
    "title": "Deezer",
@@ -8852,6 +8884,14 @@
    "source": "https://gitee.com/about_us",
    "guidelines": null,
    "hex": "C71D23"
+  },
+  "github": {
+   "title": "GitHub",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://github.com/logos",
+   "guidelines": "https://github.com/logos",
+   "hex": "181717"
   },
   "githubactions": {
    "title": "GitHub Actions",
@@ -12740,6 +12780,14 @@
    "source": "https://www.kuaishou.com/official/material-lib",
    "guidelines": "https://www.kuaishou.com/official/material-lib",
    "hex": "FF4906"
+  },
+  "kubernetes": {
+   "title": "Kubernetes",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://github.com/kubernetes/kubernetes/tree/cac53883f4714452f3084a22e4be20d042a9df33/logo",
+   "guidelines": null,
+   "hex": "326CE5"
   },
   "kubespray": {
    "title": "Kubespray",
@@ -18748,6 +18796,14 @@
    "source": "https://www.progress.com",
    "guidelines": "https://www.progress.com/legal/trademarks/trademarks-use-policy",
    "hex": "5CE500"
+  },
+  "prometheus": {
+   "title": "Prometheus",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://prometheus.io",
+   "guidelines": null,
+   "hex": "E6522C"
   },
   "pronounsdotpage": {
    "title": "Pronouns.page",
@@ -26229,6 +26285,14 @@
    "guidelines": "https://wtwi.jprodina.cz/index.php?title=Logo_webtrees",
    "hex": "2694E8"
   },
+  "wechat": {
+   "title": "WeChat",
+   "license": "CC0-1.0",
+   "licenseUrl": null,
+   "source": "https://wechat.design/tool/brand",
+   "guidelines": "https://wechat.design/brand/main-brand",
+   "hex": "07C160"
+  },
   "wegame": {
    "title": "WeGame",
    "license": "CC0-1.0",
@@ -27431,16 +27495,6 @@
   }
  },
  "excluded": {
-  "alipay": {
-   "title": "Alipay",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
-  },
-  "anthropic": {
-   "title": "Anthropic",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
-  },
   "broadcom": {
    "title": "Broadcom",
    "license": "custom",
@@ -27450,11 +27504,6 @@
    "title": "Chia Network",
    "license": "custom",
    "reason": "条款各异"
-  },
-  "claude": {
-   "title": "Claude",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
   },
   "cocoapods": {
    "title": "CocoaPods",
@@ -27470,11 +27519,6 @@
    "title": "Coreboot",
    "license": "custom",
    "reason": "条款各异"
-  },
-  "deepseek": {
-   "title": "DeepSeek",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
   },
   "dify": {
    "title": "Dify",
@@ -27516,11 +27560,6 @@
    "license": "CC-BY-NC-ND-4.0",
    "reason": "禁商用 + 禁改"
   },
-  "github": {
-   "title": "GitHub",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
-  },
   "graphite_editor": {
    "title": "Graphite",
    "license": "custom",
@@ -27545,11 +27584,6 @@
    "title": "Keycloak",
    "license": "custom",
    "reason": "条款各异"
-  },
-  "kubernetes": {
-   "title": "Kubernetes",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
   },
   "lemmy": {
    "title": "Lemmy",
@@ -27580,11 +27614,6 @@
    "title": "Pleroma",
    "license": "custom",
    "reason": "条款各异"
-  },
-  "prometheus": {
-   "title": "Prometheus",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
   },
   "pycqa": {
    "title": "PyCQA",
@@ -27645,11 +27674,6 @@
    "title": "Webpack",
    "license": "custom",
    "reason": "条款各异"
-  },
-  "wechat": {
-   "title": "WeChat",
-   "license": null,
-   "reason": "brand: 已逐个核过(那一版压过)"
   }
  }
 }

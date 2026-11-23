@@ -1,5 +1,5 @@
 ---
-id: brand:deepseek
+id: si:deepseek
 title: DeepSeek
 verdict: caution
 source: Simple Icons(CC0)· https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/deepseek.svg

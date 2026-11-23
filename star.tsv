@@ -35,7 +35,7 @@ military	tank,fighter
 animal	elephant,bird
 cat	cat,paw
 dog	dog,bone
-brand	kubernetes,openai
+brand	openai,chatgpt
 digitalocean	digitalocean,droplet
 firebase	firebase,auth
 elastic	elasticsearch,kibana

@@ -1,5 +1,5 @@
 ---
-id: brand:anthropic
+id: si:anthropic
 title: Anthropic
 verdict: caution
 source: Simple Icons(CC0)· https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anthropic.svg

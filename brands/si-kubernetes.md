@@ -1,5 +1,5 @@
 ---
-id: brand:kubernetes
+id: si:kubernetes
 title: Kubernetes
 verdict: ok
 source: Kubernetes 项目官方仓 · https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg

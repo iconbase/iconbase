@@ -1,5 +1,5 @@
 ---
-id: brand:claude
+id: si:claude
 title: Claude
 verdict: caution
 source: Simple Icons(CC0)· https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/claude.svg

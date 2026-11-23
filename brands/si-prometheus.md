@@ -1,5 +1,5 @@
 ---
-id: brand:prometheus
+id: si:prometheus
 title: Prometheus
 verdict: ok
 source: Prometheus 项目官方仓 · https://raw.githubusercontent.com/prometheus/prometheus/main/documentation/images/prometheus-logo.svg
