@@ -97,7 +97,6 @@ infra/v0:switch	交换机	Switch
 infra/v0:terminal	终端	Terminal
 infra/v0:user	用户	User
 org/v0:anthropic	Anthropic(自绘抽象符号,非官方标识)	Anthropic(self-drawn abstract symbol, not an official mark)
-org/v0:openai	OpenAI(自绘抽象符号,非官方标识)	OpenAI(self-drawn abstract symbol, not an official mark)
 db/v0:check	一致性校验	Consistency Check
 db/v0:locked	锁定	Locked
 db/v0:redis	Redis(自绘抽象符号,非官方标识)	Redis (self-drawn symbol, not an official mark)
@@ -269,8 +268,8 @@ brand:openai	OpenAI	OpenAI
 si:anthropic	Anthropic	Anthropic
 si:claude	Claude	Claude
 si:deepseek	DeepSeek	DeepSeek
-brand:gemini	Google Gemini	Google Gemini
-brand:mistral	Mistral AI	Mistral AI
+si:googlegemini	Google Gemini	Google Gemini
+si:mistralai	Mistral AI	Mistral AI
 brand:chatgpt	ChatGPT	ChatGPT
 brand:grok	Grok(xAI)	Grok(xAI)
 org/v0:chatgpt	ChatGPT(自绘抽象符号,非官方标识)	ChatGPT(self-drawn abstract symbol, not an official mark)

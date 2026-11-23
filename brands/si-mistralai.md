@@ -1,5 +1,5 @@
 ---
-id: brand:mistral
+id: si:mistralai
 title: Mistral AI
 verdict: caution
 source: Simple Icons(CC0)· https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mistralai.svg

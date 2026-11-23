@@ -8,7 +8,7 @@
 # 格式:<cat>\t<concept,concept,...>
 
 infra	server,cloud
-org	openai,anthropic
+org	anthropic,chatgpt
 db	pg,redis
 ai	llm,agent
 k8s	pod,deployment
