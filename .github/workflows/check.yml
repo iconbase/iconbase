@@ -1,15 +1,17 @@
 name: check
 
 # 两件事:
-#   check    数据自检 —— 与 service 仓的构建守同一套规矩
-#   dispatch 自检过了,叫服务仓重新取数发布(外部 PR 合并 → 自动上线)
+#   check    数据自检 —— 与 service 仓的构建守同一套规矩(PR 与 push 都跑)
+#   sync-si  每周同步一次 Simple Icons(定时跑;有变化才提交)
 #
-# 需要配好的 secrets(只 dispatch 用):
-#   SERVICE_TOKEN  一个 PAT,对该组织有 repo 权限(用来触发 service 的 workflow)
+# 不需要任何 secret:同步脚本在 iconbase/mneme(同组织,默认令牌能检出),
+# 数据写回本仓;service 仓每 6 小时自己来看有没有新版本。
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '23 4 * * 1'   # 每周一 04:23 UTC
 
 jobs:
   check:
@@ -22,21 +24,35 @@ jobs:
       # SVG 单行、索引与文件一一对应、分类登记、品牌许可记录齐备
       - run: node scripts/check.mjs
 
-  dispatch:
-    needs: check
-    if: github.event_name == 'push'
+  sync-si:
+    if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - name: 触发服务仓部署
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: iconbase/mneme
+          path: mneme
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 导入 Simple Icons
         env:
-          GH_TOKEN: ${{ secrets.SERVICE_TOKEN }}
-          SHA: ${{ github.sha }}
+          ICONBASE_DATA: ${{ github.workspace }}
+        run: node mneme/scripts/import-si.mjs
+
+      - name: 有变化才提交
         run: |
-          # --fail-with-body:没配 SERVICE_TOKEN 时 API 会回 401 ——
-          # 不加这个 curl 照样退出 0,任务假绿,数据永远发不出去。
-          curl --fail-with-body -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "X-GitHub-Api-Version: 2022-11-28" \
-            "https://api.github.com/repos/iconbase/service/dispatches" \
-            -d "{\"event_type\":\"iconbase-data-updated\",\"client_payload\":{\"sha\":\"$SHA\"}}"
+          git config user.name edwinjhlee
+          git config user.email edwin.jh.lee@gmail.com
+          git add -A
+          if git diff --cached --quiet; then
+            echo "没有变化 —— 不提交"
+          else
+            ver=$(node -p "require('./si-manifest.json').version")
+            git commit -m "chore: sync Simple Icons $ver"
+            git push
+          fi
