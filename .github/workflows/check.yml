@@ -1,5 +1,11 @@
 name: check
 
+# 两件事:
+#   check    数据自检 —— 与 service 仓的构建守同一套规矩
+#   dispatch 自检过了,叫服务仓重新取数发布(外部 PR 合并 → 自动上线)
+#
+# 需要配好的 secrets(只 dispatch 用):
+#   SERVICE_TOKEN  一个 PAT,对该组织有 repo 权限(用来触发 service 的 workflow)
 on:
   push:
     branches: [main]
@@ -13,6 +19,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      # 数据自检 —— 与 service 仓的构建守同一套规矩
-      # (SVG 单行、索引与文件一一对应、分类登记、品牌许可记录齐备)
+      # SVG 单行、索引与文件一一对应、分类登记、品牌许可记录齐备
       - run: node scripts/check.mjs
+
+  dispatch:
+    needs: check
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 触发服务仓部署
+        env:
+          GH_TOKEN: ${{ secrets.SERVICE_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/iconbase/service/dispatches" \
+            -d "{\"event_type\":\"iconbase-data-updated\",\"client_payload\":{\"sha\":\"$SHA\"}}"
