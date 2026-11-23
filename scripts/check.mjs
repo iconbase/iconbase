@@ -151,6 +151,9 @@ if (!existsSync(ICONS_DIR)) {
       if (raw.replace(/\n$/, '').includes('\n')) {
         bad(`icons/${catName}/${version ? version + '/' : ''}${file}: 图标文件必须单行(sprite 一行一个 symbol)`);
       }
+      // 许可结论 withheld 的不发布 —— 与构建一致:文件留着,只是不进清单
+      const rec = records.get(id);
+      if (NEEDS_RECORD.has(catName) && rec && rec.meta.verdict === 'withheld') return;
       if (found.has(id)) bad(`id 重复: ${id}`);
       found.set(id, { file: `icons/${catName}/${version ? version + '/' : ''}${file}`, cat: catName, version, concept });
     };
@@ -214,17 +217,17 @@ for (const cat of Object.keys(versions)) {
 
 // ---- 品牌闸门 ----
 for (const [id, rec] of records) {
-  if (rec.meta.verdict === 'withheld') {
-    if (found.has(id)) bad(`${id} 的许可结论是 withheld(不发布),但图标文件还在`);
-    continue;
-  }
+  if (rec.meta.verdict === 'withheld') continue; // 不发布 —— 文件留着,只是不进清单
   if (!found.has(id)) bad(`brands/ 里的 ${id} 没有对应图标文件`);
   if (!trademarks.has(id)) bad(`brands/ 里的 ${id} 没在 brands/trademarks.tsv 登记`);
 }
 for (const id of trademarks.keys()) {
   if (!found.has(id)) bad(`brands/trademarks.tsv 里的 ${id} 没有对应图标文件`);
 }
+// 品牌闸门只作用在需要逐个记录许可的分类上(brand / bootstrap)——
+// 自绘的分类里出现 "javascript" 这种词不算商标问题。
 for (const [id, info] of found) {
+  if (!NEEDS_RECORD.has(info.cat)) continue;
   const rec = records.get(id);
   const tm = trademarks.get(id);
   if (rec && tm && tm.status !== 'reviewed') {
@@ -232,9 +235,6 @@ for (const [id, info] of found) {
   }
   if (!tm && BRANDISH.test(info.concept)) {
     bad(`${id} 名字像品牌图标 —— 在 brands/trademarks.tsv 里登记(商标权人 + 状态)`);
-  }
-  if (NEEDS_RECORD.has(info.cat) && !rec && !tm) {
-    bad(`${id} 在需要许可记录的分类里,却没有 brands/ 记录也没有 trademarks.tsv 登记`);
   }
 }
 
