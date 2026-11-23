@@ -49,6 +49,15 @@
     "mono": true,
     "needsRecord": true
   },
+  "si": {
+    "title": "品牌标识(Simple Icons)",
+    "titleEn": "Brand Marks (Simple Icons)",
+    "source": "Simple Icons",
+    "license": "CC0-1.0(SI 包级);个别图标另有许可",
+    "note": "Simple Icons 整库搬入 —— 品牌与技术项目的标识;版权按 SI 的许可条目,商标归各权利人,仅作指示性引用",
+    "noteEn": "Simple Icons imported wholesale — brand and tech marks; copyright per each icon's license, trademarks belong to their owners, indicative use only",
+    "bulk": true
+  },
   "bootstrap": {
     "title": "Bootstrap",
     "titleEn": "Bootstrap",
