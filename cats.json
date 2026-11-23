@@ -44,8 +44,8 @@
     "titleEn": "Brand Marks",
     "source": "官方渠道 / Simple Icons(CC0) / Wikimedia Commons",
     "license": "按各品牌条款",
-    "note": "常用品牌图形 —— 官方优先,拿不到用 CC0 图标库;逐个按许可记录",
-    "noteEn": "Official sources first, then CC0 or public-domain templates; each one reviewed",
+    "note": "常用品牌图形 —— 由我们自己维护:官方优先,拿不到用 CC0 图标库;逐个按许可记录,结论写在 brands/ 里",
+    "noteEn": "Brand marks we maintain ourselves — official sources first, then CC0 libraries; each one reviewed, conclusions recorded in brands/",
     "mono": true,
     "needsRecord": true
   },
@@ -54,8 +54,8 @@
     "titleEn": "Brand Marks (Simple Icons)",
     "source": "Simple Icons",
     "license": "CC0-1.0(SI 包级);个别图标另有许可",
-    "note": "Simple Icons 整库搬入 —— 品牌与技术项目的标识;版权按 SI 的许可条目,商标归各权利人,仅作指示性引用",
-    "noteEn": "Simple Icons imported wholesale — brand and tech marks; copyright per each icon's license, trademarks belong to their owners, indicative use only",
+    "note": "Simple Icons 整库搬入 —— 批量品牌与技术标识;版权按各条许可,商标归各权利人,仅作指示性引用;已逐个核过的品牌在 brand: 里,以那一版为准",
+    "noteEn": "Simple Icons imported wholesale — brand and tech marks; copyright per each icon, trademarks belong to their owners, indicative use only; reviewed brands live in brand: and take precedence",
     "bulk": true
   },
   "bootstrap": {
