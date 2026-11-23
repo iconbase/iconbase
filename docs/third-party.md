@@ -1,0 +1,84 @@
+# 第三方素材的许可
+
+本仓的图标分两类:**我们自绘的**(Apache-2.0)与**第三方素材**(按各自的条款)。这份文档说清
+第三方素材的来源与许可处理。
+
+逐个图标的许可、来源与品牌规范链接记在 [`si-manifest.json`](../si-manifest.json) 与
+[`brands/`](../brands/) 里 —— 那两份是机器可读的准绳,本文只是把它们讲清楚。
+
+## Simple Icons(`si:` 分类)
+
+SI v16.38.1,整库搬入,**逐字节照抄**,一个字节都没改。
+
+**SI 的包是 CC0,但不是每个图标都是。** SI 自己的免责声明写着:「Simple Icons is released
+under CC0 — though that doesn't mean to imply that all icons within the project are also
+CC0. Please see individual licenses where available.」—— 大部分图标没有单独的许可条目
+(走包级默认),有条目的那 225 个按条目走。
+
+### 收进来的
+
+| 许可 | 数量 | 怎么处理 |
+| --- | ---: | --- |
+| CC0-1.0(默认 / 明写) | 3259 | 直接用 |
+| Apache-2.0 / MIT / BSD-3-Clause / Unlicense | 84 | 直接用 |
+| CC-BY-4.0 / 3.0 / 2.5 | 24 | **要署名** —— 署名与许可链接记在 `si-manifest.json` |
+| CC-BY-SA-4.0 / 3.0 / 2.5 / 2.0 | 44 | **文件级传染** —— 传染的是那一个文件,不牵连全仓;各记各的许可 |
+| GPL-2.0/3.0、AGPL-3.0、MPL-2.0 | 25 | 同上,文件级 |
+
+CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-2.0 的仓里,牵连不到
+别的文件。代价是「本仓全部 Apache-2.0」这句话不再成立 —— 第三方素材各按其条款,
+逐条的记录在 `si-manifest.json` 里。
+
+**商标另说。** 版权条目管的是图形文件,商标权归各个品牌。SI 收录时若品牌提供了使用规范,
+链接也一并记下(`guidelines` 字段,790 个图标有)。我们的用法是**指示性引用** —— 在架构图里
+标出「这是哪个品牌」,不暗示背书、不改色改形。
+
+### 没收进来的
+
+| 许可 | 原因 | 数量 | 品牌 |
+| --- | --- | ---: | --- |
+| custom | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
+| CC-BY-NC-4.0 | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
+| CC-BY-NC-ND-4.0 | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
+| CC-BY-NC-SA-4.0 | 禁商用 + 传染 | 3 | Misskey、Robot Framework、Vue.js |
+| CC-BY-NC-SA-3.0 | 禁商用 + 传染 | 1 | Sass |
+| CC-BY-ND-4.0 | 禁改 | 2 | JPEG、Slint |
+
+**禁商用**(CC-BY-NC)与本库「可商用」的承诺直接冲突,一律不收。
+
+**禁改**(CC-BY-ND)那两条单列说明一下:
+
+> **JPEG** 与 **Slint** —— CC-BY-ND-4.0,禁改编。我们把 SVG 压成单行、并把图标内联进
+> sprite,算不算改编是个有争议的问题(CC 的 FAQ 说「单纯改格式不算演绎」,但压单行更像
+> 改标记而不是改格式)。争议之下不收 —— 两个冷门图标,不值得为它们赌一次。
+> 哪天有人出具明确意见,或者我们决定逐字节保留(原样镜像、不进 sprite),可以再议。
+> 它们在 `si-manifest.json` 的 `excluded` 里记着,不是悄悄丢的。
+
+**条款各异**(custom)那 23 个,SI 自己也给不出统一的许可 —— 有的品牌(Broadcom)甚至要走
+单独的 logo 申请程序。这类一律不收。
+
+名单以 `si-manifest.json` 的 `excluded` 为准(每次同步会更新)。
+
+### `brand:` 与 `si:` 的分工
+
+- **`si:`** —— Simple Icons 提供的,批量。**我们不维护**,只同步。
+- **`brand:`** —— **我们自己维护的**:SI 里没有的,或我们需要单独处理的。
+  现在是 chatgpt / gemini / grok / mistral / openai 五个(SI 没有 OpenAI、ChatGPT、Grok)。
+
+两者不重复:SI 有的品牌不在 `brand:` 里再放一份。图形从 `si:` 来,但**许可分析跟着走** ——
+那五份 `brands/*.md` 的 `id` 用 `si:` 前缀,结论、商标权人、使用限制一个不丢。
+
+## 其余第三方素材
+
+| 分类 | 来源 | 许可 | 条款原文 |
+| --- | --- | --- | --- |
+| `aws` `azure` `gcp` `aliyun` `oci` `ibm` | 厂商自己的官方图标包 | 原厂 SVG 原样;商标归各家 | `NOTICE.md` |
+| `bootstrap` | Bootstrap Icons(整库) | 著作权 MIT | `licenses/bootstrap-icons/` |
+| `iconpark` | IconPark(字节跳动,整库) | Apache-2.0 | `NOTICE.md` |
+| `twemoji` `fluent` `noto` | Twemoji / Microsoft Fluent / Google Noto | MIT / MIT / OFL-1.1 | `NOTICE.md` |
+| `programming` `firebase` `elastic` `digitalocean` | Simple Icons(挑出来的) | CC0-1.0 | `si-manifest.json` 同源 |
+| `brand` | 官方渠道 / Wikimedia Commons / SI | 逐个分析 | `brands/` |
+
+第三方素材里画了品牌的那几十个(bootstrap 里的 alipay / github / wechat 等)在
+`brands/trademarks.tsv` 里登记商标权人与状态,`reviewed` 表示有逐条分析,`pending` 表示
+还没逐条核 —— 页面上标「未审」。
