@@ -8,15 +8,18 @@
 
 ## Simple Icons(`si:` 分类)
 
-SI v16.38.1,整库搬入,**逐字节照抄**,一个字节都没改。
+SI v<!-- gen:si-version -->
+v16.38.1
+<!-- /gen:si-version -->,整库搬入,**逐字节照抄**,一个字节都没改。
 
 **SI 的包是 CC0,但不是每个图标都是。** SI 自己的免责声明写着:「Simple Icons is released
 under CC0 — though that doesn't mean to imply that all icons within the project are also
 CC0. Please see individual licenses where available.」—— 大部分图标没有单独的许可条目
-(走包级默认),有条目的那 225 个按条目走。
+(走包级默认),有条目的那些按条目走。
 
 ### 收进来的
 
+<!-- gen:si-licences -->
 | 许可 | 数量 | 怎么处理 |
 | --- | ---: | --- |
 | CC0-1.0(默认 / 明写) | 3259 | 直接用 |
@@ -25,24 +28,29 @@ CC0. Please see individual licenses where available.」—— 大部分图标没
 | CC-BY-SA-4.0 / 3.0 / 2.5 / 2.0 | 44 | **文件级传染** —— 传染的是那一个文件,不牵连全仓;各记各的许可 |
 | GPL-2.0/3.0、AGPL-3.0、MPL-2.0 | 25 | 同上,文件级 |
 
+共 3436 个。
+<!-- /gen:si-licences -->
+
 CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-2.0 的仓里,牵连不到
 别的文件。代价是「本仓全部 Apache-2.0」这句话不再成立 —— 第三方素材各按其条款,
 逐条的记录在 `si-manifest.json` 里。
 
 **商标另说。** 版权条目管的是图形文件,商标权归各个品牌。SI 收录时若品牌提供了使用规范,
-链接也一并记下(`guidelines` 字段,790 个图标有)。我们的用法是**指示性引用** —— 在架构图里
+链接也一并记下(`guidelines` 字段)。我们的用法是**指示性引用** —— 在架构图里
 标出「这是哪个品牌」,不暗示背书、不改色改形。
 
 ### 没收进来的
 
+<!-- gen:si-excluded -->
 | 许可 | 原因 | 数量 | 品牌 |
 | --- | --- | ---: | --- |
 | custom | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
 | CC-BY-NC-4.0 | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
 | CC-BY-NC-ND-4.0 | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
 | CC-BY-NC-SA-4.0 | 禁商用 + 传染 | 3 | Misskey、Robot Framework、Vue.js |
-| CC-BY-NC-SA-3.0 | 禁商用 + 传染 | 1 | Sass |
 | CC-BY-ND-4.0 | 禁改 | 2 | JPEG、Slint |
+| CC-BY-NC-SA-3.0 | 禁商用 + 传染 | 1 | Sass |
+<!-- /gen:si-excluded -->
 
 **禁商用**(CC-BY-NC)与本库「可商用」的承诺直接冲突,一律不收。
 
@@ -54,7 +62,7 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 > 哪天有人出具明确意见,或者我们决定逐字节保留(原样镜像、不进 sprite),可以再议。
 > 它们在 `si-manifest.json` 的 `excluded` 里记着,不是悄悄丢的。
 
-**条款各异**(custom)那 23 个,SI 自己也给不出统一的许可 —— 有的品牌(Broadcom)甚至要走
+**条款各异**(custom)那批,SI 自己也给不出统一的许可 —— 有的品牌(Broadcom)甚至要走
 单独的 logo 申请程序。这类一律不收。
 
 名单以 `si-manifest.json` 的 `excluded` 为准(每次同步会更新)。
@@ -63,10 +71,10 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 
 - **`si:`** —— Simple Icons 提供的,批量。**我们不维护**,只同步。
 - **`brand:`** —— **我们自己维护的**:SI 里没有的,或我们需要单独处理的。
-  现在是 chatgpt / gemini / grok / mistral / openai 五个(SI 没有 OpenAI、ChatGPT、Grok)。
+  现在是 chatgpt / grok / openai 三个(SI 没有 OpenAI、ChatGPT、Grok)。
 
 两者不重复:SI 有的品牌不在 `brand:` 里再放一份。图形从 `si:` 来,但**许可分析跟着走** ——
-那五份 `brands/*.md` 的 `id` 用 `si:` 前缀,结论、商标权人、使用限制一个不丢。
+那七份 `brands/*.md` 的 `id` 用 `si:` 前缀,结论、商标权人、使用限制一个不丢。
 
 ## 其余第三方素材
 

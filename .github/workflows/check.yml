@@ -1,17 +1,16 @@
 name: check
 
-# 两件事:
-#   check    数据自检 —— 与 service 仓的构建守同一套规矩(PR 与 push 都跑)
-#   sync-si  每周同步一次 Simple Icons(定时跑;有变化才提交)
+# 数据自检 —— 与 service 仓的构建守同一套规矩(PR 与 push 都跑)。
 #
-# 不需要任何 secret:同步脚本在 iconbase/mneme(同组织,默认令牌能检出),
-# 数据写回本仓;service 仓每 6 小时自己来看有没有新版本。
+# 同步 Simple Icons **不自动跑**:每周 SI 带来新品牌,收不收、许可怎么写、
+# 索引怎么接,都要人(或 agent)按 iconbase/mneme 的 skill 走一遍 ——
+# 盲跑脚本会把没分析过的品牌直接带进库里。
+#
+# 要同步时:按那个 skill 走。
 on:
   push:
     branches: [main]
   pull_request:
-  schedule:
-    - cron: '23 4 * * 1'   # 每周一 04:23 UTC
 
 jobs:
   check:
@@ -23,36 +22,3 @@ jobs:
           node-version: '20'
       # SVG 单行、索引与文件一一对应、分类登记、品牌许可记录齐备
       - run: node scripts/check.mjs
-
-  sync-si:
-    if: github.event_name == 'schedule'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
-        with:
-          repository: iconbase/mneme
-          path: mneme
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 导入 Simple Icons
-        env:
-          ICONBASE_DATA: ${{ github.workspace }}
-        run: node mneme/scripts/import-si.mjs
-
-      - name: 有变化才提交
-        run: |
-          git config user.name edwinjhlee
-          git config user.email edwin.jh.lee@gmail.com
-          git add -A
-          if git diff --cached --quiet; then
-            echo "没有变化 —— 不提交"
-          else
-            ver=$(node -p "require('./si-manifest.json').version")
-            git commit -m "chore: sync Simple Icons $ver"
-            git push
-          fi

@@ -35,18 +35,59 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 
 ## 4. 分类目录
 
+<!-- gen:cats -->
 | cat | 是什么 | 许可 |
 | --- | --- | --- |
-| `aws` `azure` `gcp` `aliyun` `oci` `ibm` | 云厂商官方服务标识 | 原厂 SVG,商标归各家 |
-| `infra` `network` `base` `frame` `common` | 通用基础设施、设备、底座、框架、共用符号 | Apache-2.0 |
-| `db` `ai` `k8s` `sec` `obs` `dev` | 数据库、AI 架构、K8s 组件、安全、可观测性、开发流程 | Apache-2.0 |
-| `chem` `circuit` `music` `food` `animal` `cat` `dog` | 学科与日常物件、动物 | Apache-2.0 |
-| `phy` `mech` `military` | 物理、机械、通用军备符号 | Apache-2.0 |
-| `travel` `nutrition` `transport` `weather` `education` `aviation` `people` `region` `filetype` | 生活与专题场景 | Apache-2.0 |
-| `vis` | 图表 —— 柱/线/饼/仪表/时间线/流程/地图等 | Apache-2.0 |
-| `si` | Simple Icons 整库 —— 品牌与技术项目的标识(三千多个) | CC0 为主,个别另有许可 |
-| `brand` `bootstrap` `iconpark` `programming` `firebase` `elastic` `digitalocean` | 品牌与第三方图标库 | 逐个看记录;整库搬入的按库的条款 |
-| `twemoji` `fluent` `noto` | emoji —— 同一批概念三种画法 | MIT / MIT / OFL-1.1 |
+| `aws` | AWS | 厂商图标包(商标归 AWS) |
+| `azure` | Azure | 厂商图标包(商标归 Microsoft) |
+| `gcp` | GCP | 厂商图标包(商标归 Google) |
+| `infra` | 通用基础设施 | Apache-2.0 |
+| `brand` | 品牌标识 | 按各品牌条款 |
+| `si` | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
+| `bootstrap` | Bootstrap | MIT(著作权) |
+| `db` | 数据库 | Apache-2.0 |
+| `ai` | AI | Apache-2.0 |
+| `k8s` | Kubernetes | Apache-2.0 |
+| `sec` | 安全 | Apache-2.0 |
+| `obs` | 可观测性 | Apache-2.0 |
+| `cat` | 猫 | Apache-2.0 |
+| `dog` | 狗 | Apache-2.0 |
+| `animal` | 动物 | Apache-2.0 |
+| `phy` | 物理 | Apache-2.0 |
+| `mech` | 机械 | Apache-2.0 |
+| `military` | 军事 | Apache-2.0 |
+| `chem` | 化学 | Apache-2.0 |
+| `dev` | 开发流程 | Apache-2.0 |
+| `github` | GitHub | Apache-2.0 |
+| `circuit` | 电路 | Apache-2.0 |
+| `music` | 音乐 | Apache-2.0 |
+| `food` | 食物 | Apache-2.0 |
+| `programming` | 语言与框架 | CC0 |
+| `firebase` | Firebase | CC0 |
+| `elastic` | Elastic | CC0 |
+| `digitalocean` | DigitalOcean | CC0 |
+| `network` | 网络设备 | Apache-2.0 |
+| `base` | 底座 | Apache-2.0 |
+| `frame` | 框架 | Apache-2.0 |
+| `common` | 通用符号 | Apache-2.0 |
+| `travel` | 旅行 | Apache-2.0 |
+| `vis` | 图表 | Apache-2.0 |
+| `nutrition` | 营养 | Apache-2.0 |
+| `transport` | 交通工具 | Apache-2.0 |
+| `aliyun` | 阿里云 | 厂商图标包(商标归阿里云) |
+| `oci` | Oracle 云 | 厂商图标包(商标归 Oracle) |
+| `ibm` | IBM 云 | 厂商图标包(商标归 IBM) |
+| `iconpark` | IconPark | Apache-2.0 |
+| `people` | 人与职业 | Apache-2.0 |
+| `region` | 地区 | Apache-2.0 |
+| `filetype` | 文件类型 | Apache-2.0 |
+| `twemoji` | Emoji(Twemoji) | MIT |
+| `fluent` | Emoji(Fluent) | MIT |
+| `noto` | Emoji(Noto) | OFL-1.1 |
+| `aviation` | 航空 | Apache-2.0 |
+| `education` | 教育 | Apache-2.0 |
+| `weather` | 天气 | Apache-2.0 |
+<!-- /gen:cats -->
 
 全表与逐项说明见 [`README.md`](README.md)。
 
