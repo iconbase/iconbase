@@ -1,0 +1,400 @@
+{
+  "aws": {
+    "title": "AWS",
+    "titleEn": "AWS",
+    "source": "AWS 官方架构图标包",
+    "license": "厂商图标包(商标归 AWS)",
+    "note": "AWS 官方服务标识,原样 SVG",
+    "noteEn": "Official AWS service icons, SVG as published"
+  },
+  "azure": {
+    "title": "Azure",
+    "titleEn": "Azure",
+    "source": "Microsoft Azure 官方图标包",
+    "license": "厂商图标包(商标归 Microsoft)",
+    "note": "Azure 官方服务标识,原样 SVG",
+    "noteEn": "Official Azure service icons, SVG as published"
+  },
+  "gcp": {
+    "title": "GCP",
+    "titleEn": "GCP",
+    "source": "Google Cloud 官方图标集",
+    "license": "厂商图标包(商标归 Google)",
+    "note": "Google Cloud 官方产品标识,原样 SVG",
+    "noteEn": "Official Google Cloud product icons, SVG as published"
+  },
+  "infra": {
+    "title": "通用基础设施",
+    "titleEn": "Infrastructure",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "通用概念,彩色填充",
+    "noteEn": "Generic concepts, filled in colour"
+  },
+  "org": {
+    "title": "公司与机构",
+    "titleEn": "Organizations",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "自绘抽象符号,不含任何商标图形",
+    "noteEn": "Self-drawn abstract symbols, no trademark artwork"
+  },
+  "brand": {
+    "title": "品牌标识",
+    "titleEn": "Brand Marks",
+    "source": "官方渠道 / Simple Icons(CC0) / Wikimedia Commons",
+    "license": "按各品牌条款",
+    "note": "常用品牌图形 —— 官方优先,拿不到用 CC0 图标库;逐个按许可记录",
+    "noteEn": "Official sources first, then CC0 or public-domain templates; each one reviewed",
+    "mono": true,
+    "needsRecord": true
+  },
+  "bootstrap": {
+    "title": "Bootstrap",
+    "titleEn": "Bootstrap",
+    "source": "Bootstrap Icons",
+    "license": "MIT(著作权)",
+    "note": "整库搬入;画了品牌的那几十个另见许可记录",
+    "noteEn": "Bootstrap Icons, imported whole; the branded ones are reviewed separately",
+    "bulk": true,
+    "mono": true,
+    "needsRecord": true
+  },
+  "db": {
+    "title": "数据库",
+    "titleEn": "Databases",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "数据库的概念与形态",
+    "noteEn": "Database concepts and shapes"
+  },
+  "ai": {
+    "title": "AI",
+    "titleEn": "AI",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "AI 架构里的通用概念",
+    "noteEn": "Common concepts in AI architectures"
+  },
+  "k8s": {
+    "title": "Kubernetes",
+    "titleEn": "Kubernetes",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "K8s 组件概念(非官方标识)",
+    "noteEn": "K8s component concepts (not official marks)"
+  },
+  "sec": {
+    "title": "安全",
+    "titleEn": "Security",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "安全概念",
+    "noteEn": "Security concepts"
+  },
+  "obs": {
+    "title": "可观测性",
+    "titleEn": "Observability",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "指标 / 日志 / 链路",
+    "noteEn": "Metrics, logs and traces"
+  },
+  "cat": {
+    "title": "猫",
+    "titleEn": "Cats",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "猫",
+    "noteEn": "Cats"
+  },
+  "dog": {
+    "title": "狗",
+    "titleEn": "Dogs",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "狗",
+    "noteEn": "Dogs"
+  },
+  "animal": {
+    "title": "动物",
+    "titleEn": "Animals",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "动物",
+    "noteEn": "Animals"
+  },
+  "phy": {
+    "title": "物理",
+    "titleEn": "Physics",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "物理概念与微观结构 —— 原子 / 分子 / 键 / 晶体结构 / 力学 / 电磁 / 光学",
+    "noteEn": "Physics concepts — atoms, molecules, structures, mechanics, EM, optics"
+  },
+  "mech": {
+    "title": "机械",
+    "titleEn": "Machinery",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "机器上的零件 —— 齿轮 / 轴承 / 阀门 / 泵 / 涡轮",
+    "noteEn": "Machine parts — gears, bearings, valves, pumps, turbines"
+  },
+  "military": {
+    "title": "军事",
+    "titleEn": "Military",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "海军 / 空军 / 陆军的通用装备符号 —— 不指向任何国家的具体部队",
+    "noteEn": "Generic navy, air force and ground force unit symbols"
+  },
+  "chem": {
+    "title": "化学",
+    "titleEn": "Chemistry",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "化学:实验器材 / 试剂 / 结构",
+    "noteEn": "Chemistry: lab equipment, reagents and structures"
+  },
+  "dev": {
+    "title": "开发流程",
+    "titleEn": "Development",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "开发项目流程 —— 通用阶段 / 软件 / 硬件",
+    "noteEn": "Development workflow — phases, software and hardware"
+  },
+  "github": {
+    "title": "GitHub",
+    "titleEn": "GitHub",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "GitHub 的概念与流程 —— 右下角是 GitHub 官方 mark(次要位置)",
+    "noteEn": "GitHub concepts and flows — official mark in a secondary position"
+  },
+  "circuit": {
+    "title": "电路",
+    "titleEn": "Circuits",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "电子与电路",
+    "noteEn": "Electronics and circuits"
+  },
+  "music": {
+    "title": "音乐",
+    "titleEn": "Music",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "音乐与音频",
+    "noteEn": "Music and audio"
+  },
+  "food": {
+    "title": "食物",
+    "titleEn": "Food",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "食物与饮品",
+    "noteEn": "Food and drink"
+  },
+  "programming": {
+    "title": "语言与框架",
+    "titleEn": "Languages & Frameworks",
+    "source": "Simple Icons",
+    "license": "CC0",
+    "note": "编程语言与 Web 框架的标识",
+    "noteEn": "Programming languages and web frameworks"
+  },
+  "firebase": {
+    "title": "Firebase",
+    "titleEn": "Firebase",
+    "source": "Simple Icons",
+    "license": "CC0",
+    "note": "Firebase 的产品标识",
+    "noteEn": "Firebase product marks"
+  },
+  "elastic": {
+    "title": "Elastic",
+    "titleEn": "Elastic",
+    "source": "Simple Icons",
+    "license": "CC0",
+    "note": "Elastic Stack 的产品标识",
+    "noteEn": "Elastic Stack product marks"
+  },
+  "digitalocean": {
+    "title": "DigitalOcean",
+    "titleEn": "DigitalOcean",
+    "source": "Simple Icons",
+    "license": "CC0",
+    "note": "DigitalOcean 的产品标识",
+    "noteEn": "DigitalOcean product marks"
+  },
+  "network": {
+    "title": "网络设备",
+    "titleEn": "Network Devices",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "交换机 / 路由器 / 防火墙 / 机架 这类设备与符号 —— 自绘的抽象图形",
+    "noteEn": "Switches, routers, firewalls, racks — self-drawn abstract shapes"
+  },
+  "base": {
+    "title": "底座",
+    "titleEn": "Bases",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "上面放东西的台面 —— 内容区在底座之上",
+    "noteEn": "Pedestals and slabs — content sits on top"
+  },
+  "frame": {
+    "title": "框架",
+    "titleEn": "Frames",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "框在外、内容在里面的框架型图标 —— 屏 / 白板 / 门 / 云 / 地图",
+    "noteEn": "Containers with room inside — screens, boards, doors, clouds, maps"
+  },
+  "common": {
+    "title": "通用符号",
+    "titleEn": "Common Symbols",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "全库共用的基本符号 —— 锁 / 时钟 / 对勾 / 同步",
+    "noteEn": "Basic symbols shared across the library — lock, clock, check, sync"
+  },
+  "travel": {
+    "title": "旅行",
+    "titleEn": "Travel",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "旅行攻略里用得上的东西 —— 行李 / 证件 / 住宿 / 景点 / 路线",
+    "noteEn": "What a travel guide needs — luggage, documents, stays, sights, routes"
+  },
+  "vis": {
+    "title": "图表",
+    "titleEn": "Charts & Diagrams",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "x-cmd/draw 的图种类别 —— 统计图表 / 架构图 / 时序与流程图 / 地图 / 乐谱 / 化学式",
+    "noteEn": "Chart kinds of x-cmd/draw — statistical charts, architecture diagrams, sequence & flow diagrams, maps, scores, chemical structures"
+  },
+  "nutrition": {
+    "title": "营养",
+    "titleEn": "Nutrition",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "营养成分与膳食 —— 热量 / 蛋白质 / 脂肪 / 维生素",
+    "noteEn": "Nutrients and diet — calories, protein, fat, vitamins"
+  },
+  "transport": {
+    "title": "交通工具",
+    "titleEn": "Transport",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "日常出行的交通工具 —— 车 / 船 / 飞机 / 轨道交通",
+    "noteEn": "Everyday vehicles — cars, ships, planes, rail"
+  },
+  "aliyun": {
+    "title": "阿里云",
+    "titleEn": "Alibaba Cloud",
+    "source": "阿里云官方矢量图标包(2022 橙)",
+    "license": "厂商图标包(商标归阿里云)",
+    "note": "阿里云官方服务标识,原样 SVG",
+    "noteEn": "Official Alibaba Cloud service icons, SVG as published"
+  },
+  "oci": {
+    "title": "Oracle 云",
+    "titleEn": "Oracle Cloud",
+    "source": "Oracle OCI 官方架构图标包(V24.2)",
+    "license": "厂商图标包(商标归 Oracle)",
+    "note": "Oracle 云基础设施官方服务标识,原样 SVG",
+    "noteEn": "Official Oracle Cloud Infrastructure service icons, SVG as published"
+  },
+  "ibm": {
+    "title": "IBM 云",
+    "titleEn": "IBM Cloud",
+    "source": "IBM Cloud 官方架构图标包(architecture-icons)",
+    "license": "厂商图标包(商标归 IBM)",
+    "note": "IBM Cloud 官方架构图标,原样 SVG",
+    "noteEn": "Official IBM Cloud architecture icons, SVG as published"
+  },
+  "iconpark": {
+    "title": "IconPark",
+    "titleEn": "IconPark",
+    "source": "IconPark(ByteDance)",
+    "license": "Apache-2.0",
+    "note": "字节跳动 IconPark 整库搬入 —— 多彩填充风;品牌类(83 个)与带品牌名的图标不收",
+    "noteEn": "ByteDance IconPark imported whole — colourful filled style; the brand category and brand-named icons are left out",
+    "bulk": true
+  },
+  "people": {
+    "title": "人与职业",
+    "titleEn": "People",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "工作类型与人群 —— 只取中性、正面的表达",
+    "noteEn": "Work types and groups of people — neutral, positive depictions only"
+  },
+  "region": {
+    "title": "地区",
+    "titleEn": "Regions",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "地理与行政层级 —— 国家 / 省 / 市 / 区县 / 可用区 / 机房",
+    "noteEn": "Geography and administrative levels — country, province, city, district, availability zone, data centre"
+  },
+  "filetype": {
+    "title": "文件类型",
+    "titleEn": "File Types",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "常见的文件类型 —— 文档 / 表格 / 代码 / 图片 / 音视频 / 压缩包",
+    "noteEn": "Common file types — documents, sheets, code, images, media, archives"
+  },
+  "twemoji": {
+    "title": "Emoji(Twemoji)",
+    "titleEn": "Emoji (Twemoji)",
+    "source": "Twemoji",
+    "license": "MIT",
+    "note": "Twitter 的 emoji 集,整库搬入;同一批概念在 fluent: / noto: 里另有两版",
+    "noteEn": "Twitter's emoji set, imported whole; the same concepts also come in fluent: and noto:"
+  },
+  "fluent": {
+    "title": "Emoji(Fluent)",
+    "titleEn": "Emoji (Fluent)",
+    "source": "Microsoft Fluent Emoji",
+    "license": "MIT",
+    "note": "微软 Fluent Emoji 的扁平版,整库搬入;键名跟 twemoji: / noto: 对得上,同一概念三种画",
+    "noteEn": "Microsoft Fluent Emoji (Flat), imported whole; keys match twemoji: and noto: — same concept, three drawings"
+  },
+  "noto": {
+    "title": "Emoji(Noto)",
+    "titleEn": "Emoji (Noto)",
+    "source": "Noto Emoji",
+    "license": "OFL-1.1",
+    "note": "Google Noto Emoji 2D,整库搬入;键名跟 twemoji: / fluent: 对得上,同一概念三种画",
+    "noteEn": "Google Noto Emoji 2D, imported whole; keys match twemoji: and fluent: — same concept, three drawings"
+  },
+  "aviation": {
+    "title": "航空",
+    "titleEn": "Aviation",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "航空与航天 —— 客机 / 无人机 / 卫星 / 地面站 / 塔台 / 空域",
+    "noteEn": "Aviation and spaceflight — airliners, drones, satellites, ground stations, towers, airspace"
+  },
+  "education": {
+    "title": "教育",
+    "titleEn": "Education",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "教育场景 —— 小学 / 初中 / 高中 / 大学 等学段,以及校园里的通用概念",
+    "noteEn": "Education — school stages from primary to university, plus everyday campus concepts"
+  },
+  "weather": {
+    "title": "天气",
+    "titleEn": "Weather",
+    "source": "x-cmd/icon 自绘",
+    "license": "Apache-2.0",
+    "note": "天气现象与观测要素 —— 晴雨雪雾 / 温度 / 湿度 / 气压",
+    "noteEn": "Weather phenomena and observations — sun, rain, snow, fog, temperature, humidity, pressure"
+  }
+}
