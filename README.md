@@ -1,17 +1,24 @@
 # iconbase
 
-图标数据仓 —— 图标库**发布源**。这里只放图标本体与它的许可记录,不含评审数据、不含站点代码。
+图标数据 —— 图标本体与它们的许可记录。
 
-线上站点:**https://x-cmd.com/iconbase/**(查询、合成、评分台都在那边)
+```
+icons/            图标本体(SVG,单行自包含)
+catalog.tsv       索引:<id>\t<中文>\t<English>
+versions.json     每个分类当前推荐哪个版本
+star.tsv          精选:每类挑 2 个
+cats.json         分类的出处与许可
+brands/           品牌图形的许可记录(逐个分析)
+licenses/         第三方素材的许可原文
+NOTICE.md         署名
+si-manifest.json  Simple Icons 的逐图标许可与来源
+```
 
-两类东西放一起:
+键名 `<cat>:<concept>` 是别名(指向该分类当前推荐的版本),
+`<cat>/v<n>:<concept>` 是具体版本。
 
-- **云厂商官方标识** —— AWS / Azure / GCP,直接取**厂商自己的官方图标包**里的 SVG
-  (矢量,原样不改):[AWS Architecture Icons](https://aws.amazon.com/architecture/icons/)、
-  [Microsoft Azure Public Service Icons](https://learn.microsoft.com/en-us/azure/architecture/icons/)、
-  [Google Cloud 产品图标](https://cloud.google.com/icons)。条款与处理见 `NOTICE.md`。
-- **本仓自绘的通用概念** —— 服务器、磁盘阵列、路由器、显示器、桌面应用这类没有厂商归属的东西,
-  24×24 网格、彩色填充的 SVG。
+取用:线上 `https://x-cmd.com/iconbase/i/<cat>/<concept>.svg`,
+或直接用本仓的文件。贡献见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
 ## 键名规范
 
@@ -81,7 +88,7 @@
 
 ## 怎么取图标
 
-站点把这一份数据加工成 sprite / 清单发到边缘,按需取:
+线上(已加工成 sprite 与清单,按需取):
 
 | 东西 | URL |
 | --- | --- |
@@ -192,7 +199,7 @@ docs/icon-sources.md           各分类素材从哪来
 | 仓 | 放什么 |
 | --- | --- |
 | **iconbase/iconbase**(本仓) | 图标数据 + 许可记录 —— 发布源,外部贡献进这里 |
-| `iconbase/service` | 站点与边缘:合成引擎、统计、评分台(闭源) |
-| `iconbase/mneme` | 设计与历史:母版、评分、设计决策(私有) |
+| `iconbase/service` | 站点与边缘(闭源) |
+| `iconbase/mneme` | 设计与历史(私有) |
 
-本仓的改动合入后,由 service 仓的构建从本仓取数再发布到边缘。
+本仓的改动合入后,由 service 仓从本仓取数再发布。
