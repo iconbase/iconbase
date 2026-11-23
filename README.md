@@ -33,8 +33,8 @@ si-manifest.json  Simple Icons 的逐图标许可与来源
 | --- | --- | --- | --- |
 | `aws` `azure` `gcp` `aliyun` `oci` `ibm` | 厂商官方图标包 | 云服务 | 原厂 SVG 原样;商标归各自权利人,见 `NOTICE.md` |
 | `infra` | 本仓自绘 | 通用基础设施概念 | 本仓 Apache-2.0 |
-| `org` | 本仓自绘 | 公司与机构的**抽象符号** | 本仓 Apache-2.0,不含任何商标图形 |
-| `brand` | 官方渠道 / Simple Icons(CC0) / Wikimedia Commons | 常用品牌图形 | **逐个按该品牌的条款分析**,记在 `brands/` 里 |
+| `si` | Simple Icons(整库) | 品牌与技术项目的标识 —— 批量 | CC0 为主,个别图标另有许可,逐条记在 `si-manifest.json` |
+| `brand` | 官方渠道 / Wikimedia Commons | SI 不提供的品牌图形 | **逐个按该品牌的条款分析**,记在 `brands/` 里 |
 | `bootstrap` | Bootstrap Icons(整库) | 第三方图标库的全部图标 | 著作权 MIT;画了品牌的那五十来个另有登记 |
 | `iconpark` | IconPark(字节跳动,整库) | 多彩填充风的通用概念 | 著作权 Apache-2.0;品牌类不收 |
 | `db` | 本仓自绘 | 数据库的概念与形态 | 本仓 Apache-2.0 |
@@ -53,10 +53,10 @@ si-manifest.json  Simple Icons 的逐图标许可与来源
 | `dev` | 本仓自绘 | 开发项目流程 —— 通用阶段 / 软件 / 硬件 | 本仓 Apache-2.0 |
 | `common` | 本仓自绘 | 全库共用的基本符号 —— 锁 / 时钟 / 对勾 / 同步 | 本仓 Apache-2.0 |
 
-例:`aws:ec2`、`infra:disk-array`、`db:locked`、`org:openai`、`brand:kubernetes`、`bootstrap:alipay`。
+例:`aws:ec2`、`infra:disk-array`、`db:locked`、`vis:bar`、`si:php`、`brand:kubernetes`。
 
-> `org:` 那一族是**自绘的抽象符号**,不含任何公司的商标图形 —— 公开分发不能带别人的 mark。
-> 想要真正的 logo,走 `brand:`(官方优先,拿不到用 CC0 图标库)或 `bootstrap:`(第三方库),两者都要有许可记录。
+> 想要某个公司的标识,走 `si:`(Simple Icons 整库)、`brand:`(我们逐个核过的那几个)或
+> `bootstrap:`(第三方库)—— 三处都要有许可记录。
 
 分类的出处与许可是数据,记在 [`cats.json`](cats.json)。
 
@@ -76,7 +76,7 @@ si-manifest.json  Simple Icons 的逐图标许可与来源
 - 哪个版本算"推荐",写在 [`versions.json`](versions.json):
 
   ```json
-  { "infra": "v0", "org": "v0" }
+  { "infra": "v0", "vis": "v2" }
   ```
 
   这是**人的决定**,不自动取最高版本 —— 新画一版进来,别名先不动;
@@ -172,6 +172,7 @@ cats.json                      分类的出处与许可
 brands/<cat>-<concept>.md      品牌图形的许可记录(brand / bootstrap 必须有)
 brands/trademarks.tsv          画了商标的图标清单(商标权人 + 状态)
 brands/brandish.txt            名字像品牌的 —— 必须在 trademarks.tsv 里登记
+si-manifest.json               Simple Icons 的逐图标许可、来源与品牌规范链接
 licenses/                      第三方素材的许可原文
 docs/icon-sources.md           各分类素材从哪来
 ```
@@ -190,7 +191,6 @@ docs/icon-sources.md           各分类素材从哪来
   [Azure](https://learn.microsoft.com/en-us/azure/architecture/icons/)、
   [Google Cloud](https://cloud.google.com/icons)),原样取 SVG;
   商标归各自权利人所有,不得改色改形。详见 `NOTICE.md`。
-- `org:` 那族是自绘抽象符号,与任何公司无商标关联。
 - `brand:` 里有一部分取自 Wikimedia Commons(公有领域 + 商标标记),
   见 `licenses/wikimedia-commons/`。
 

@@ -44,9 +44,9 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 | `phy` `mech` `military` | 物理、机械、通用军备符号 | Apache-2.0 |
 | `travel` `nutrition` `transport` `weather` `education` `aviation` `people` `region` `filetype` | 生活与专题场景 | Apache-2.0 |
 | `vis` | 图表 —— 柱/线/饼/仪表/时间线/流程/地图等 | Apache-2.0 |
+| `si` | Simple Icons 整库 —— 品牌与技术项目的标识(三千多个) | CC0 为主,个别另有许可 |
 | `brand` `bootstrap` `iconpark` `programming` `firebase` `elastic` `digitalocean` | 品牌与第三方图标库 | 逐个看记录;整库搬入的按库的条款 |
 | `twemoji` `fluent` `noto` | emoji —— 同一批概念三种画法 | MIT / MIT / OFL-1.1 |
-| `org` | 公司与机构的**抽象符号**(非商标图形) | Apache-2.0 |
 
 全表与逐项说明见 [`README.md`](README.md)。
 
@@ -77,9 +77,9 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 ## 7. 许可边界
 
-- **自绘的**(`infra` `db` `sec` `vis` `org` …)Apache-2.0,署名见 `NOTICE.md`。
+- **自绘的**(`infra` `db` `sec` `vis` …)Apache-2.0,署名见 `NOTICE.md`。
 - **厂商标识**(`aws` `azure` `gcp` …)原样取自厂商官方包,**不得改色改形**;商标归各自权利人,只作指示性引用。
-- **`org:` 是自绘的抽象符号**,跟任何公司没有商标关联 —— 想用真正的 logo 走 `brand:`。
+- **想要某个公司的标识**走 `si:`(Simple Icons 整库)/ `brand:`(我们逐个核过的那几个)/ `bootstrap:`(第三方库)。
 - **`brand:` / `bootstrap:` 是别人的商标**,每个都有一份许可记录(`brands/<cat>-<concept>.md`),记录里写了结论(`ok` / `caution` / `withheld`)、商标权人与限制条款。`withheld` 的不发布。
 - 拿不准就去看清单里的许可字段,或者去 `brands/` 找那份记录。
 

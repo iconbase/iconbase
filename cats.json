@@ -31,14 +31,6 @@
     "note": "通用概念,彩色填充",
     "noteEn": "Generic concepts, filled in colour"
   },
-  "org": {
-    "title": "公司与机构",
-    "titleEn": "Organizations",
-    "source": "x-cmd/icon 自绘",
-    "license": "Apache-2.0",
-    "note": "自绘抽象符号,不含任何商标图形",
-    "noteEn": "Self-drawn abstract symbols, no trademark artwork"
-  },
   "brand": {
     "title": "品牌标识",
     "titleEn": "Brand Marks",
