@@ -17,7 +17,7 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 
 **别名指向推荐版。** 自绘的分类会迭代,`<cat>:<concept>` 永远给你当前推荐的那一版;要钉死某一版写全 `<cat>/v<n>:<concept>`。
 
-**许可写在数据里。** 每张图标都知道自己从哪来、什么条款 —— 自绘的是 Apache-2.0,厂商的是原厂 SVG 原样(商标归权利人),品牌图形逐个分析过。
+**许可写在数据里。** 每张图标都知道自己从哪来、什么条款 —— 自绘的是 Apache-2.0,厂商的是原厂 SVG 原样(商标归权利人),品牌图形带来源给的逐图���许可。
 
 ## 2. 什么时候用 / 不用
 
@@ -42,7 +42,7 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 | `azure` | Azure | 厂商图标包(商标归 Microsoft) |
 | `gcp` | GCP | 厂商图标包(商标归 Google) |
 | `infra` | 通用基础设施 | Apache-2.0 |
-| `brand` | 品牌标识 | 按各品牌条款 |
+| `brand` | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
 | `si` | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
 | `bootstrap` | Bootstrap | MIT(著作权) |
 | `db` | 数据库 | Apache-2.0 |
@@ -120,13 +120,13 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 - **自绘的**(`infra` `db` `sec` `vis` …)Apache-2.0,署名见 `NOTICE.md`。
 - **厂商标识**(`aws` `azure` `gcp` …)原样取自厂商官方包,**不得改色改形**;商标归各自权利人,只作指示性引用。
-- **想要某个公司的标识**走 `si:`(Simple Icons 整库)/ `brand:`(我们逐个核过的那几个)/ `bootstrap:`(第三方库)。
-- **`brand:` / `bootstrap:` 是别人的商标**,每个都有一份许可记录(`brands/<cat>-<concept>.md`),记录里写了结论(`ok` / `caution` / `withheld`)、商标权人与限制条款。`withheld` 的不发布。
-- 拿不准就去看清单里的许可字段,或者去 `brands/` 找那份记录。
+- **想要某个公司的标识**走 `si:`(Simple Icons 整库,三千多个)/ `brand:`(SI 没有的)/ `bootstrap:`(第三方库)。
+- **元信息来自来源本身**:分类级在 `cats.json`,逐图标的在 `si-manifest.json`(照 SI 原样的形状)。
+- 商标归各权利人,只作指示性引用 —— 不改色不改形、不暗示背书。
 
 ## 8. 贡献
 
-加图标、改图标、补许可记录 → 见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。构建会替你卡住漏掉的东西:文件没有对应的 `catalog.tsv` 行、品牌没有许可记录、版本目录不存在,都直接报错。
+加图标、改图标 → 见 [`CONTRIBUTING.md`](CONTRIBUTING.md)。构建会替你卡住漏掉的东西:文件没有对应的 `catalog.tsv` 行、版本目录不存在,都直接报错。
 
 ## 9. 如何索引
 
@@ -136,11 +136,9 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 | --- | --- |
 | `icons/<cat>/[v<n>/]<concept>.svg` | 单行、24×24、自包含;文件名 = 概念名(小写连字符) |
 | `catalog.tsv` | `<id>\t<中文>\t<English>` 三列;**只写具体版本的键**(`infra/v0:server`)—— 别名由构建生成,写别名构建报错 |
-| `brands/<cat>-<concept>.md` | 品牌图形才要,见下一节 |
 
 **特殊情况才动**:`versions.json`(版本化分类登记推荐版)、`cats.json`(新建分类)、
-`star.tsv`(每类挑 2 个)、`brands/trademarks.tsv`(画了商标的登记商标权人与状态)、
-`brands/brandish.txt`(名字像品牌的)。
+`star.tsv`(每类挑 2 个)。
 
 **别名规则**:`<cat>:<concept>` 永远指向该分类当前推荐的版本 —— 别名不进 `catalog.tsv`,
 它是构建生成的。整库搬入的分类(`cats.json` 里 `bulk: true`)不用写 catalog 行。
@@ -150,33 +148,18 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 ## 10. 如何分析
 
-**查的顺序**:① 官方品牌页(官方 SVG/PNG 的直链、条款怎么写)→ ② 商标政策页(允许什么用法、
-要不要申请、有没有改色/留白/最小尺寸限制)→ ③ 素材出处(文件从哪来、著作权什么许可、有没有
-版本号)→ ④ 上游动向(这个图标是不是第三方搬来的、那个库撤没撤、商标方有没有要求撤)。
+**我们不逐个分析品牌** —— 元信息来自来源自己:分类级在 `cats.json`,逐图标的在
+`si-manifest.json`(只有 SI 给逐图标数据)。研究过程在
+[iconbase/mneme 的 story](https://github.com/iconbase/mneme/blob/main/story/legal/261117.icon-brand-licensing/README.md)。
 
-**记的字段**(`brands/<cat>-<concept>.md` 的头部):
+**要查的时候,顺序是**:① 官方品牌页(官方 SVG/PNG 的直链、条款怎么写)→ ② 商标政策页
+(允许什么用法、要不要申请、有没有改色/留白/最小尺寸限制)→ ③ 素材出处(文件从哪来、
+著作权什么许可、有没有版本号)→ ④ 上游动向(这个图标是不是第三方搬来的、那个库撤没撤、
+商标方有没有要求撤)。**「没查到什么」也要写出来** —— 空白不等于没有约束。
 
-```
-id / title / verdict / source / license / licenseUrl /
-trademarkOwner / trademarkPolicy / restrictions / reviewed
-```
-
-`trademarkPolicy` 填官方政策页 URL —— 页面上会渲染成可点的链接。
-
-**三档结论**:
-
-| verdict | 判据 | 构建行为 |
-| --- | --- | --- |
-| `ok` | 政策明确,我们的用法在许可范围内 | 收录 |
-| `caution` | 收录,但只能指示性引用 | 收录,页面标「谨慎」 |
-| `withheld` | 分析留档,**不发布** | 不进清单,记录留着 |
-
-正文写四件事:查了哪个官方页面、条款怎么写、我们怎么用、什么情况下要下架。
-**「没查到什么」也要写出来**(官方没有公开的政策页、素材直链 403 …)—— 空白不等于没有约束。
+**什么时候不收**:CC-BY-NC-*(禁商用,与本库「可商用」的承诺冲突)、CC-BY-ND-*(禁改,
+我们压单行算不算改编有争议)、custom(条款各异)、上游撤下了(上游撤 = 品牌方大概率
+要求不再分发)。不收的也要写下来 —— 记进 `si-manifest.json` 的 `excluded`,别悄悄丢。
 
 **红线**:不改色不改形,只作指示性引用(不暗示背书、不与自有品牌并列成 lockup);
 外部参考只取引喻思路、严禁搬路径形状;抓来的素材只放 /tmp,永不入库。
-
-**什么时候不收**:CC-BY-NC-*(禁商用,与本库「可商用」的承诺冲突)、CC-BY-ND-*(禁改,
-我们压单行算不算改编有争议)、custom(条款各异)、上游撤下了(上游撤 = 品牌方大概率要求不再分发)。
-不收的也要写下来 —— 记进 `si-manifest.json` 的 `excluded`,别悄悄丢。

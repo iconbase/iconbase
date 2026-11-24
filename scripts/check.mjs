@@ -22,71 +22,6 @@ if (!existsSync(CATS_FILE)) {
 }
 const CATS = JSON.parse(readFileSync(CATS_FILE, 'utf8'));
 const BULK = new Set(Object.entries(CATS).filter(([, m]) => m.bulk).map(([c]) => c));
-const NEEDS_RECORD = new Set(Object.entries(CATS).filter(([, m]) => m.needsRecord).map(([c]) => c));
-
-// ---- brands/brandish.txt:名字像品牌的 ----
-const BRANDISH_FILE = join(ROOT, 'brands/brandish.txt');
-let brandish = [];
-if (existsSync(BRANDISH_FILE)) {
-  brandish = readFileSync(BRANDISH_FILE, 'utf8')
-    .split('\n')
-    .map((l) => l.trim())
-    .filter((l) => l && !l.startsWith('#'));
-  if (!brandish.length) bad('brands/brandish.txt 是空的 —— 品牌名兜底名单不能为空');
-}
-const BRANDISH = new RegExp(`^(?:${brandish.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})$`);
-
-// ---- brands/*.md:许可记录 ----
-const records = new Map(); // id → { meta }
-const BRANDS_DIR = join(ROOT, 'brands');
-if (!existsSync(BRANDS_DIR)) bad('brands/ 不在 —— 品牌图形逐个要许可记录,不能没有这个目录');
-for (const f of readdirSync(BRANDS_DIR).sort()) {
-  if (!f.endsWith('.md')) continue;
-  const text = readFileSync(join(BRANDS_DIR, f), 'utf8');
-  const m = text.match(/^---\n([\s\S]*?)\n---/);
-  if (!m) {
-    bad(`brands/${f}: 没有 --- 包裹的头部`);
-    continue;
-  }
-  const meta = {};
-  for (const line of m[1].split('\n')) {
-    const i = line.indexOf(':');
-    if (i < 0) continue;
-    meta[line.slice(0, i).trim()] = line.slice(i + 1).trim();
-  }
-  if (!meta.id) {
-    bad(`brands/${f}: 头部缺 id`);
-    continue;
-  }
-  if (!['ok', 'caution', 'withheld'].includes(meta.verdict)) {
-    bad(`brands/${f}: verdict 只能是 ok / caution / withheld(现在是 "${meta.verdict}")`);
-  }
-  if (records.has(meta.id)) bad(`brands/: id 重复 —— ${meta.id}`);
-  records.set(meta.id, { meta, file: f });
-}
-
-// ---- brands/trademarks.tsv:画了商标的清单 ----
-const trademarks = new Map();
-const TM_FILE = join(BRANDS_DIR, 'trademarks.tsv');
-if (existsSync(TM_FILE)) {
-  readFileSync(TM_FILE, 'utf8').split('\n').forEach((line, i) => {
-    const t = line.trim();
-    if (!t || t.startsWith('#')) return;
-    const [id, owner, status, ...rest] = t.split('\t');
-    if (!id || !status) {
-      bad(`brands/trademarks.tsv:${i + 1} 格式不对(应为 <id>\\t<商标权人>\\t<reviewed|pending>[\\t备注])`);
-      return;
-    }
-    if (status !== 'reviewed' && status !== 'pending') {
-      bad(`brands/trademarks.tsv:${i + 1} 状态只能是 reviewed / pending`);
-      return;
-    }
-    trademarks.set(id, { owner: owner || '', status, note: rest.join('\t') || '' });
-  });
-} else {
-  bad('brands/trademarks.tsv 不在 —— 画了商标的图标要登记商标权人与状态');
-}
-
 // ---- versions.json:每个分类推荐哪个版本 ----
 const VERSIONS_FILE = join(ROOT, 'versions.json');
 let versions = {};
@@ -151,9 +86,6 @@ if (!existsSync(ICONS_DIR)) {
       if (raw.replace(/\n$/, '').includes('\n')) {
         bad(`icons/${catName}/${version ? version + '/' : ''}${file}: 图标文件必须单行(sprite 一行一个 symbol)`);
       }
-      // 许可结论 withheld 的不发布 —— 与构建一致:文件留着,只是不进清单
-      const rec = records.get(id);
-      if (NEEDS_RECORD.has(catName) && rec && rec.meta.verdict === 'withheld') return;
       if (found.has(id)) bad(`id 重复: ${id}`);
       found.set(id, { file: `icons/${catName}/${version ? version + '/' : ''}${file}`, cat: catName, version, concept });
     };
@@ -216,28 +148,6 @@ for (const cat of Object.keys(versions)) {
 }
 
 // ---- 品牌闸门 ----
-for (const [id, rec] of records) {
-  if (rec.meta.verdict === 'withheld') continue; // 不发布 —— 文件留着,只是不进清单
-  if (!found.has(id)) bad(`brands/ 里的 ${id} 没有对应图标文件`);
-  if (!trademarks.has(id)) bad(`brands/ 里的 ${id} 没在 brands/trademarks.tsv 登记`);
-}
-for (const id of trademarks.keys()) {
-  if (!found.has(id)) bad(`brands/trademarks.tsv 里的 ${id} 没有对应图标文件`);
-}
-// 品牌闸门只作用在需要逐个记录许可的分类上(brand / bootstrap)——
-// 自绘的分类里出现 "javascript" 这种词不算商标问题。
-for (const [id, info] of found) {
-  if (!NEEDS_RECORD.has(info.cat)) continue;
-  const rec = records.get(id);
-  const tm = trademarks.get(id);
-  if (rec && tm && tm.status !== 'reviewed') {
-    bad(`${id} 有许可记录,但 trademarks.tsv 里状态是 ${tm.status} —— 改成 reviewed`);
-  }
-  if (!tm && BRANDISH.test(info.concept)) {
-    bad(`${id} 名字像品牌图标 —— 在 brands/trademarks.tsv 里登记(商标权人 + 状态)`);
-  }
-}
-
 // ---- star.tsv:精选 ----
 const STAR_FILE = join(ROOT, 'star.tsv');
 if (existsSync(STAR_FILE)) {
@@ -260,4 +170,4 @@ if (problems.length) {
   for (const p of problems) console.error(`  ${p}`);
   process.exit(1);
 }
-console.log(`check: 全过 —— ${found.size} 个图标,${Object.keys(CATS).length} 个分类,${records.size} 份许可记录`);
+console.log(`check: 全过 —— ${found.size} 个图标,${Object.keys(CATS).length} 个分类`);

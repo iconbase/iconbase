@@ -34,10 +34,10 @@
   "brand": {
     "title": "品牌标识",
     "titleEn": "Brand Marks",
-    "source": "官方渠道 / Simple Icons(CC0) / Wikimedia Commons",
-    "license": "按各品牌条款",
-    "note": "常用品牌图形 —— 由我们自己维护:官方优先,拿不到用 CC0 图标库;逐个按许可记录,结论写在 brands/ 里",
-    "noteEn": "Brand marks we maintain ourselves — official sources first, then CC0 libraries; each one reviewed, conclusions recorded in brands/",
+    "source": "Wikimedia Commons(公有领域模板)",
+    "license": "PD-simple / PD-logo(素材本身);商标权另论,各归其权利人",
+    "note": "SI 没有提供的品牌图形 —— 素材取自公有领域渠道;商标归各权利人,只作指示性引用",
+    "noteEn": "Brand marks Simple Icons does not carry — artwork from public-domain sources; trademarks belong to their owners, indicative use only",
     "mono": true,
     "needsRecord": true
   },

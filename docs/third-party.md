@@ -3,8 +3,9 @@
 本仓的图标分两类:**我们自绘的**(Apache-2.0)与**第三方素材**(按各自的条款)。这份文档说清
 第三方素材的来源与许可处理。
 
-逐个图标的许可、来源与品牌规范链接记在 [`si-manifest.json`](../si-manifest.json) 与
-[`brands/`](../brands/) 里 —— 那两份是机器可读的准绳,本文只是把它们讲清楚。
+元信息只有两层,都是机器可读的准绳:**分类级**在 [`cats.json`](../cats.json),
+**逐图标级**在 [`si-manifest.json`](../si-manifest.json)(只有 SI 给逐图标数据)。
+研究过程在 [iconbase/mneme 的 story](https://github.com/iconbase/mneme/blob/main/story/legal/261117.icon-brand-licensing/README.md)。
 
 ## Simple Icons(`si:` 分类)
 
@@ -22,11 +23,6 @@ CC0. Please see individual licenses where available.」—— 大部分图标没
 <!-- gen:si-licences -->
 | 许可 | 数量 | 怎么处理 |
 | --- | ---: | --- |
-| CC0-1.0(默认 / 明写) | 3259 | 直接用 |
-| Apache-2.0 / MIT / BSD-3-Clause / Unlicense | 84 | 直接用 |
-| CC-BY-4.0 / 3.0 / 2.5 | 24 | **要署名** —— 署名与许可链接记在 `si-manifest.json` |
-| CC-BY-SA-4.0 / 3.0 / 2.5 / 2.0 | 44 | **文件级传染** —— 传染的是那一个文件,不牵连全仓;各记各的许可 |
-| GPL-2.0/3.0、AGPL-3.0、MPL-2.0 | 25 | 同上,文件级 |
 
 共 3436 个。
 <!-- /gen:si-licences -->
@@ -44,12 +40,11 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 <!-- gen:si-excluded -->
 | 许可 | 原因 | 数量 | 品牌 |
 | --- | --- | ---: | --- |
-| custom | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
-| CC-BY-NC-4.0 | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
-| CC-BY-NC-ND-4.0 | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
-| CC-BY-NC-SA-4.0 | 禁商用 + 传染 | 3 | Misskey、Robot Framework、Vue.js |
-| CC-BY-ND-4.0 | 禁改 | 2 | JPEG、Slint |
-| CC-BY-NC-SA-3.0 | 禁商用 + 传染 | 1 | Sass |
+| [object Object] | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
+| [object Object] | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
+| [object Object] | 禁商用 + 传染 | 4 | Misskey、Robot Framework、Sass、Vue.js |
+| [object Object] | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
+| [object Object] | 禁改 | 2 | JPEG、Slint |
 <!-- /gen:si-excluded -->
 
 **禁商用**(CC-BY-NC)与本库「可商用」的承诺直接冲突,一律不收。
@@ -70,11 +65,10 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 ### `brand:` 与 `si:` 的分工
 
 - **`si:`** —— Simple Icons 提供的,批量。**我们不维护**,只同步。
-- **`brand:`** —— **我们自己维护的**:SI 里没有的,或我们需要单独处理的。
-  现在是 chatgpt / grok / openai 三个(SI 没有 OpenAI、ChatGPT、Grok)。
+- **`brand:`** —— SI 没有、而权利人自己在公有领域渠道上传了官方画作的
+  (现在是 chatgpt / grok / openai 三个 —— OpenAI 与 ChatGPT 是同一枚标记,两个键)。
 
-两者不重复:SI 有的品牌不在 `brand:` 里再放一份。图形从 `si:` 来,但**许可分析跟着走** ——
-那七份 `brands/*.md` 的 `id` 用 `si:` 前缀,结论、商标权人、使用限制一个不丢。
+两者不重复:SI 有的品牌不在 `brand:` 里再放一份。
 
 ## 其余第三方素材
 
@@ -85,8 +79,7 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 | `iconpark` | IconPark(字节跳动,整库) | Apache-2.0 | `NOTICE.md` |
 | `twemoji` `fluent` `noto` | Twemoji / Microsoft Fluent / Google Noto | MIT / MIT / OFL-1.1 | `NOTICE.md` |
 | `programming` `firebase` `elastic` `digitalocean` | Simple Icons(挑出来的) | CC0-1.0 | `si-manifest.json` 同源 |
-| `brand` | 官方渠道 / Wikimedia Commons / SI | 逐个分析 | `brands/` |
+| `brand` | Wikimedia Commons(权利人自己上传的公有领域画作) | PD-simple / PD-logo(素材);商标权另论 | `NOTICE.md` |
 
-第三方素材里画了品牌的那几十个(bootstrap 里的 alipay / github / wechat 等)在
-`brands/trademarks.tsv` 里登记商标权人与状态,`reviewed` 表示有逐条分析,`pending` 表示
-还没逐条核 —— 页面上标「未审」。
+第三方素材里画了品牌的那几十个(bootstrap 里的 alipay / github / wechat 等)同样是别人的商标:
+只作指示性引用,不改色改形、不暗示背书。

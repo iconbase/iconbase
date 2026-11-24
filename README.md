@@ -1,6 +1,6 @@
 # iconbase
 
-图标数据 —— 图标本体与它们的许可记录。
+图标数据 —— 图标本体与它们的元信息。
 
 ```
 icons/            图标本体(SVG,单行自包含)
@@ -8,10 +8,9 @@ catalog.tsv       索引:<id>\t<中文>\t<English>
 versions.json     每个分类当前推荐哪个版本
 star.tsv          精选:每类挑 2 个
 cats.json         分类的出处与许可
-brands/           品牌图形的许可记录(逐个分析)
 licenses/         第三方素材的许可原文
 NOTICE.md         署名
-si-manifest.json  Simple Icons 的逐图标许可与来源
+si-manifest.json  Simple Icons 的逐图单元信息(照 SI 原样)
 ```
 
 键名 `<cat>:<concept>` 是别名(指向该分类当前推荐的版本),
@@ -36,7 +35,7 @@ si-manifest.json  Simple Icons 的逐图标许可与来源
 | `azure` | Microsoft Azure 官方图标包 | Azure | 厂商图标包(商标归 Microsoft) |
 | `gcp` | Google Cloud 官方图标集 | GCP | 厂商图标包(商标归 Google) |
 | `infra` | x-cmd/icon 自绘 | 通用基础设施 | Apache-2.0 |
-| `brand` | 官方渠道 / Simple Icons(CC0) / Wikimedia Commons | 品牌标识 | 按各品牌条款 |
+| `brand` | Wikimedia Commons(公有领域模板) | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
 | `si` | Simple Icons | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
 | `bootstrap` | Bootstrap Icons | Bootstrap | MIT(著作权) |
 | `db` | x-cmd/icon 自绘 | 数据库 | Apache-2.0 |
@@ -85,8 +84,8 @@ si-manifest.json  Simple Icons 的逐图标许可与来源
 
 例:`aws:ec2`、`infra:disk-array`、`db:locked`、`vis:bar`、`si:php`、`brand:kubernetes`。
 
-> 想要某个公司的标识,走 `si:`(Simple Icons 整库)、`brand:`(我们逐个核过的那几个)或
-> `bootstrap:`(第三方库)—— 三处都要有许可记录。
+> 想要某个公司的标识,走 `si:`(Simple Icons 整库,三千多个)、`brand:`(SI 没有、
+> 素材在公有领域渠道的)或 `bootstrap:`(第三方库)。商标归各权利人,只作指示性引用。
 
 分类的出处与许可是数据,记在 [`cats.json`](cats.json)。
 
@@ -151,44 +150,23 @@ infra/v0:router	路由器	Router
 `catalog.tsv` 是唯一事实源 —— 构建会校验它跟 `icons/` 里的文件一一对应:
 多一行、少一行、id 写错,直接报错。
 
-## 品牌图形:逐个按许可分析
+## 品牌图形:来源与许可
 
-`brand:` 和 `bootstrap:` 里的图标是**别人的商标**。著作权那层(MIT / Apache-2.0)好办,
-商标那层才是雷区 —— 所以每个品牌都要有一份记录,记在 `brands/<cat>-<concept>.md`:
+`si:` / `brand:` / `bootstrap:` 里是**别人的商标**。著作权那层(CC0 / MIT / 公有领域)
+好办,商标那层才是雷区。
 
-```markdown
----
-id: bootstrap:alipay
-title: 支付宝 / Alipay
-verdict: caution
-source: Bootstrap Icons 1.13.1 · https://…
-license: MIT(图标素材的著作权)
-licenseUrl: https://github.com/twbs/icons/blob/main/LICENSE
-trademarkOwner: 蚂蚁集团(Ant Group Co., Ltd. 及其关联公司)
-trademarkPolicy: https://docs.alipayplus.com/…
-restrictions: 不得暗示蚂蚁背书或合作;不得当作自己的标识;仅用于指代该品牌
-reviewed: 2026-11-17
----
+**元信息从哪来** —— 来自来源自己,不由我们编:
 
-(下面是分析正文:查了哪个官方页面、条款怎么写、我们怎么用、什么情况下要下架)
-```
-
-`verdict` 三档:
-
-| verdict | 意思 | 构建行为 |
+| 层 | 在哪 | 有什么 |
 | --- | --- | --- |
-| `ok` | 政策明确、我们的用法在许可范围内 | 收录 |
-| `caution` | 收录,但只能指示性引用,页面上带「谨慎」标记 | 收录 |
-| `withheld` | 分析留档,**不发布** | 图标不进清单,记录留着 |
+| 分类级 | [`cats.json`](cats.json) | 每个分类的来源、许可、说明 |
+| 逐图标级 | [`si-manifest.json`](si-manifest.json) | 只有 SI 给:标题、来源 URL、许可类型与原文链接、官方品牌规范链接 |
 
-构建时的硬规则:`brand` / `bootstrap` 里的图标**没有记录直接报错**;
-记录里的 id 没有对应文件也报错。所以"逐个按许可分析"不是靠自觉,是靠构建卡住的。
+别的系列(bootstrap / iconpark / emoji / 厂商包)是整库同一许可,分类级就够,没有逐图标信息可写。
 
-名字像品牌的图标(名单在 [`brands/brandish.txt`](brands/brandish.txt))还必须在
-`brands/trademarks.tsv` 里登记商标权人与状态。
-
-> 记录里也要写清**没查到什么**(比如"腾讯没有公开的第三方商标政策页")——
-> 空白不等于没有约束。
+**我们怎么用**:指示性引用 —— 不改色不改形、不暗示背书、不与自有品牌并列成 lockup。
+研究过程(查了哪个官方页面、条款怎么写、哪些品牌方撤了图标)在
+[iconbase/mneme 的 story](https://github.com/iconbase/mneme/blob/main/story/legal/261117.icon-brand-licensing/README.md)。
 
 ## 目录
 
@@ -199,9 +177,6 @@ catalog.tsv                    索引:<id>\t<中文>\t<English>,一行一个(只
 versions.json                  每个分类当前推荐哪个版本
 star.tsv                       精选:每类挑 2 个 —— 首页先加载这一小包
 cats.json                      分类的出处与许可
-brands/<cat>-<concept>.md      品牌图形的许可记录(brand / bootstrap 必须有)
-brands/trademarks.tsv          画了商标的图标清单(商标权人 + 状态)
-brands/brandish.txt            名字像品牌的 —— 必须在 trademarks.tsv 里登记
 si-manifest.json               Simple Icons 的逐图标许可、来源与品牌规范链接
 licenses/                      第三方素材的许可原文
 docs/icon-sources.md           各分类素材从哪来
@@ -211,7 +186,7 @@ docs/icon-sources.md           各分类素材从哪来
 
 见 [CONTRIBUTING.md](CONTRIBUTING.md)。规矩很短:文件放进 `icons/<cat>/`,
 `catalog.tsv` 补一行,新建分类要在 `cats.json` 登记,
-品牌类要补 `brands/` 的许可记录 —— 构建会替你卡住漏掉的。
+构建会替你卡住漏掉的。
 
 ## 许可与出处
 
