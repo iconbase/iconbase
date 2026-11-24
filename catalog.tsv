@@ -359,6 +359,8 @@ common/v0:gear	齿轮	Gear
 common/v0:chart	图表	Chart
 common/v0:bulb	灯泡	Light Bulb
 common/v0:code	代码	Code
+common/v0:star	星星	Star
+common/v0:flag	旗子	Flag
 network/v0:switch	交换机	Switch
 network/v0:router	路由器	Router
 network/v0:firewall	防火墙	Firewall
