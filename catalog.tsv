@@ -557,7 +557,6 @@ gcp:cloud-build	云构建	Cloud Build
 gcp:cloudsql	关系型数据库	Cloud SQL
 gcp:cloudfunctions	函数	Cloud Functions
 programming:react	React	React
-programming:vue	Vue	Vue
 programming:svelte	Svelte	Svelte
 programming:angular	Angular	Angular
 programming:nextjs	Next.js	Next.js
