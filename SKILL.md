@@ -135,6 +135,9 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 `?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3&scale=0.8` —— 收藏、国别、计数,各占一角。
 `scale=` 调角标大小(0.5~2)。
 
+**哪些图标适合被合成** —— 清单(manifest.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
+角标那种是公式化的(任何图标都能挂一枚计数),不用查清单。
+
 两枚图标并成一枚时,`d=` 是它们**重心之间**的距离,单位是 icon 大小:
 `1` = 挨着(默认),`0.5` = 压住一半(「谁挡着谁」那种关系),`2` = 中间隔开一个。
 画布按图形的并集算 —— 间距变了,画布跟着变。

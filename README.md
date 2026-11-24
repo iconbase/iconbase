@@ -11,6 +11,7 @@ cats.json         分类的出处与许可
 licenses/         第三方素材的许可原文
 NOTICE.md         署名
 si-manifest.json  Simple Icons 的逐图单元信息(照 SI 原样)
+compose.json      哪些图标适合被合成(上下 / 框内嵌图)—— 构建灌进 manifest
 ```
 
 键名 `<cat>:<concept>` 是别名(指向该分类当前推荐的版本),
