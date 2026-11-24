@@ -129,9 +129,15 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 `?icon=people/v0:team&ru=IBM` 那个气泡正好压在中间那个人的头上。
 **挂品牌名用 `icon-text`。**
 
-角标也能**挂图标**:`@` 后面写图标 id,角标变成一枚白底圆片,里面是那枚图标。
+角标也能**挂图标**:`@` 后面写图标 id。图标角标**不带圆框** —— 图形自己的形状就是底,
+融进底图里(文字角标是深底白字,反过来:再套一圈底就把主体盖住了)。
 角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂:
-`?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3` —— 收藏、国别、计数,各占一角。
+`?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3&scale=0.8` —— 收藏、国别、计数,各占一角。
+`scale=` 调角标大小(0.5~2)。
+
+两枚图标并成一枚时,`d=` 是它们**重心之间**的距离,单位是 icon 大小:
+`1` = 挨着(默认),`0.5` = 压住一半(「谁挡着谁」那种关系),`2` = 中间隔开一个。
+画布按图形的并集算 —— 间距变了,画布跟着变。
 
 ## 6. 版本与别名
 

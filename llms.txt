@@ -18,8 +18,8 @@
 - [合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
 - 文字标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
 - 框内嵌图:`https://x-cmd.com/iconbase/draw/in?icon=<框型图标id>&in=<内容图标id>`
-- 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>`(角标里也能放图标:`rl=@<图标id>`)
-- 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h`
+- 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>` —— 角标里也能放图标:`rl=@<图标id>`(图形自己当底,不带圆框);`scale=` 调大小
+- 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h` —— `d=` 是两枚重心之间的距离(单位:icon 大小,1 = 挨着,0.5 = 压住一半)
 - [合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
 
 ## 规则
