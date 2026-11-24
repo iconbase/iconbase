@@ -1,11 +1,11 @@
-# 不引入的 icon,以及怎么用合成代替
+# 不引入的 icon,以及怎么用象形合成代替
 
 > 有些品牌标识我们**不收录** —— 不是找不到,是不能收:条款禁商用、禁改、或者条款各异到没法核对。
-> 这篇列出它们是哪些、官方素材在哪,以及**用合成怎么把意思说到位**。
+> 这篇列出它们是哪些、官方素材在哪,以及**用象形合成怎么把意思说到位**。
 
-## 先说合成:库里没有,照样能画
+## 先说象形合成:库里没有,照样能画
 
-iconbase 的图标是 24×24 的功能图形;**合成**是把它们按配方拼成一枚新的图 ——
+iconbase 的图标是 24×24 的功能图形;**象形合成**是把它们按配方拼成一枚新的图 ——
 主体图形 + 一块标签、图形里嵌图形、角上挂一枚角标、两枚并成一枚。
 
 ```
@@ -27,14 +27,14 @@ https://x-cmd.com/iconbase/draw/icon-text?icon=people/v0:team&text=IBM
 
 图标 id 从 [`manifest.json`](https://x-cmd.com/iconbase/manifest.json) 查(键是
 `<cat>:<concept>` 或 `<cat>/v<n>:<concept>`)。更多案例在
-[合成 Gallery](https://x-cmd.com/iconbase/compose)。
+[象形合成 Gallery](https://x-cmd.com/iconbase/compose)。
 
 ## 不收录的 36 个
 
 下面每一行都给了**官方素材的链接**(带 `nofollow` —— 我们不为这些素材背书,也不传递权重)
-和**用合成怎么表达**。替代表达里的图形是「能说明它用途的那一枚」,配上一块品牌名标签。
+和**用象形合成怎么表达**。替代表达里的图形是「能说明它用途的那一枚」,配上一块品牌名标签。
 
-| 键 | 是什么 | 条款 | 为什么不收 | 官方素材 | 替代表达（合成） |
+| 键 | 是什么 | 条款 | 为什么不收 | 官方素材 | 替代表达(象形合成) |
 | --- | --- | --- | --- | --- | --- |
 | `Broadcom` | 半导体 | custom | 条款各异 | <a href="https://www.broadcom.com/support" rel="nofollow noopener">www.broadcom.com</a> | `https://x-cmd.com/iconbase/draw/icon-text?icon=infra/v0:cpu&text=broadcom` |
 | `Chia Network` | 区块链存储 | custom | 条款各异 | <a href="https://www.chia.net/branding/" rel="nofollow noopener">www.chia.net</a> | `https://x-cmd.com/iconbase/draw/icon-text?icon=infra/v0:storage&text=chia` |

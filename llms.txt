@@ -13,18 +13,18 @@
 - [按 id 取 data URI](https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked):一次拿多个,直接内联
 - [查询页](https://x-cmd.com/iconbase/):人在浏览器里搜
 
-## 合成 —— 库里没有精确对应的,用合成表达
+## 象形合成 —— 库里没有精确对应的,用合成表达
 
-- [合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
+- [象形合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
 - 文字标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
 - 框内嵌图:`https://x-cmd.com/iconbase/draw/in?icon=<框型图标id>&in=<内容图标id>`
 - 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>` —— 角标里也能放图标:`rl=@<图标id>`(图形自己当底,不带圆框);`scale=` 调大小
 - 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h` —— `d=` 是两枚重心之间的距离(单位:icon 大小,1 = 挨着,0.5 = 压住一半)
-- [合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
+- [象形合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
 
 ## 规则
 
-- [不引入的 icon,以及怎么用合成代替](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md)
+- [不引入的 icon,以及怎么用象形合成代替](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md)
 - [协议与现状](https://github.com/iconbase/iconbase/blob/main/docs/goal.md)
 - [评分系统](https://github.com/iconbase/iconbase/blob/main/docs/rating.md)
 - [下架申请](https://github.com/iconbase/iconbase/blob/main/docs/takedown.md)

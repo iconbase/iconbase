@@ -17,7 +17,7 @@
 | 图标 | **18798** 枚,49 个分类 |
 | 自绘 | 32 个分类、776 枚 —— 24×24 网格、彩色填充,Apache-2.0 |
 | 第三方 | 17 个分类、18022 枚 —— 厂商官方包、Simple Icons、Bootstrap、IconPark、三套 emoji |
-| 合成 | 四种手法:文字标签 / 框内嵌图 / 角标 / 并排;角标里还能挂图标;产物是 SVG,可长缓存、可进版本库 |
+| 象形合成 | 四种手法:文字标签 / 框内嵌图 / 角标 / 并排;角标里还能挂图标;产物是 SVG,可长缓存、可进版本库 |
 | 评分 | AI 盲评 + 人工反馈,均分 < 8 进重设计队列([评分系统](rating.md)) |
 | 站点 | https://x-cmd.com/iconbase/ |
 
@@ -38,7 +38,7 @@ SVG 总体积 54.9 MB。
 Simple Icons 收录时若品牌给了使用规范,链接一并记下。
 
 **不收的三档**:禁商用(CC-BY-NC)、禁改(CC-BY-ND)、条款各异(custom)。
-理由与替代表达见 [不引入的 icon,以及怎么用合成代替](not-included.md)。
+理由与替代表达见 [不引入的 icon,以及怎么用象形合成代替](not-included.md)。
 
 **我们不主张权利** —— 自绘部分按 Apache-2.0 发布;第三方部分各按其条款,
 署名见 [`NOTICE.md`](../NOTICE.md) 与 [`licenses/`](../licenses/)。
@@ -55,7 +55,7 @@ https://x-cmd.com/iconbase/index.json                     分类索引
 https://x-cmd.com/iconbase/api/icons.json?ids=a,b         按 id 取 data URI
 ```
 
-**合成**:
+**象形合成**:
 
 ```
 https://x-cmd.com/iconbase/draw/icon-text?icon=<id>&text=<文字>
@@ -66,12 +66,12 @@ https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h
 
 键名规范:`<cat>:<concept>` 是别名(指向该分类当前推荐的版本),
 `<cat>/v<n>:<concept>` 是具体版本。清单在 `manifest.json` 里,
-[合成 Gallery](https://x-cmd.com/iconbase/compose) 有可复制的例子。
+[象形合成 Gallery](https://x-cmd.com/iconbase/compose) 有可复制的例子。
 
 ## 相关
 
 - [让 agent 检索 iconbase](agent.md) —— 一句 prompt + llms.txt + skill
-- [不引入的 icon,以及怎么用合成代替](not-included.md)
+- [不引入的 icon,以及怎么用象形合成代替](not-included.md)
 - [评分系统](rating.md)
 - [下架申请](takedown.md)
 - [贡献指南](../CONTRIBUTING.md)

@@ -9,7 +9,7 @@ iconbase 是给**人和 agent**用的图标库:18798 枚图标、49 个分类,�
 
 ```
 读 https://x-cmd.com/iconbase/llms.txt —— 那是 iconbase(图标库)的机器可读入口。
-按里面的说明检索图标:要语义准确的先查 manifest.json;库里没有精确对应的就用合成
+按里面的说明检索图标:要语义准确的先查 manifest.json;库里没有精确对应的就用象形合成
 (/draw/icon-text?icon=<id>&text=<文字> 这类),把配方 URL 给我。
 ```
 
@@ -33,18 +33,18 @@ iconbase 是给**人和 agent**用的图标库:18798 枚图标、49 个分类,�
 - [按 id 取 data URI](https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked):一次拿多个,直接内联
 - [查询页](https://x-cmd.com/iconbase/):人在浏览器里搜
 
-## 合成 —— 库里没有精确对应的,用合成表达
+## 象形合成 —— 库里没有精确对应的,用合成表达
 
-- [合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
+- [象形合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
 - 文字标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
 - 框内嵌图:`https://x-cmd.com/iconbase/draw/in?icon=<框型图标id>&in=<内容图标id>`
 - 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>` —— 角标里也能放图标:`rl=@<图标id>`(图形自己当底,不带圆框);`scale=` 调大小
 - 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h` —— `d=` 是两枚重心之间的距离(单位:icon 大小,1 = 挨着,0.5 = 压住一半)
-- [合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
+- [象形合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
 
 ## 规则
 
-- [不引入的 icon,以及怎么用合成代替](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md)
+- [不引入的 icon,以及怎么用象形合成代替](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md)
 - [协议与现状](https://github.com/iconbase/iconbase/blob/main/docs/goal.md)
 - [评分系统](https://github.com/iconbase/iconbase/blob/main/docs/rating.md)
 - [下架申请](https://github.com/iconbase/iconbase/blob/main/docs/takedown.md)
@@ -104,13 +104,7 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 <!-- gen:cats -->
 | cat | 是什么 | 许可 |
 | --- | --- | --- |
-| `aws` | AWS | 厂商图标包(商标归 AWS) |
-| `azure` | Azure | 厂商图标包(商标归 Microsoft) |
-| `gcp` | GCP | 厂商图标包(商标归 Google) |
 | `infra` | 通用基础设施 | Apache-2.0 |
-| `brand` | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
-| `si` | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
-| `bootstrap` | Bootstrap | MIT(著作权) |
 | `db` | 数据库 | Apache-2.0 |
 | `ai` | AI | Apache-2.0 |
 | `k8s` | Kubernetes | Apache-2.0 |
@@ -128,10 +122,6 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 | `circuit` | 电路 | Apache-2.0 |
 | `music` | 音乐 | Apache-2.0 |
 | `food` | 食物 | Apache-2.0 |
-| `programming` | 语言与框架 | CC0 |
-| `firebase` | Firebase | CC0 |
-| `elastic` | Elastic | CC0 |
-| `digitalocean` | DigitalOcean | CC0 |
 | `network` | 网络设备 | Apache-2.0 |
 | `base` | 底座 | Apache-2.0 |
 | `frame` | 框架 | Apache-2.0 |
@@ -140,19 +130,29 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 | `vis` | 图表 | Apache-2.0 |
 | `nutrition` | 营养 | Apache-2.0 |
 | `transport` | 交通工具 | Apache-2.0 |
-| `aliyun` | 阿里云 | 厂商图标包(商标归阿里云) |
-| `oci` | Oracle 云 | 厂商图标包(商标归 Oracle) |
-| `ibm` | IBM 云 | 厂商图标包(商标归 IBM) |
-| `iconpark` | IconPark | Apache-2.0 |
 | `people` | 人与职业 | Apache-2.0 |
 | `region` | 地区 | Apache-2.0 |
 | `filetype` | 文件类型 | Apache-2.0 |
-| `twemoji` | Emoji(Twemoji) | MIT |
-| `fluent` | Emoji(Fluent) | MIT |
-| `noto` | Emoji(Noto) | OFL-1.1 |
 | `aviation` | 航空 | Apache-2.0 |
 | `education` | 教育 | Apache-2.0 |
 | `weather` | 天气 | Apache-2.0 |
+| `aws` | AWS | 厂商图标包(商标归 AWS) |
+| `azure` | Azure | 厂商图标包(商标归 Microsoft) |
+| `gcp` | GCP | 厂商图标包(商标归 Google) |
+| `aliyun` | 阿里云 | 厂商图标包(商标归阿里云) |
+| `oci` | Oracle 云 | 厂商图标包(商标归 Oracle) |
+| `ibm` | IBM 云 | 厂商图标包(商标归 IBM) |
+| `brand` | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
+| `si` | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
+| `programming` | 语言与框架 | CC0 |
+| `firebase` | Firebase | CC0 |
+| `elastic` | Elastic | CC0 |
+| `digitalocean` | DigitalOcean | CC0 |
+| `bootstrap` | Bootstrap | MIT(著作权) |
+| `iconpark` | IconPark | Apache-2.0 |
+| `twemoji` | Emoji(Twemoji) | MIT |
+| `fluent` | Emoji(Fluent) | MIT |
+| `noto` | Emoji(Noto) | OFL-1.1 |
 <!-- /gen:cats -->
 
 全表与逐项说明见 [`README.md`](README.md)。
@@ -171,9 +171,9 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 - 别名与具体版本两个键都取得到,别名指向的就是推荐版本那份文件。
 - 想把图标内嵌进 SVG、PPT 或 HTML,用 data URI 接口(`ids=` 逗号分隔)。
 
-**要合成**(角标、图内嵌图、图文并排)用 draw 的合成接口 —— `https://x-cmd.com/iconbase/draw/badge?icon=infra:disk&text=x2` 之类;合成的 id 本身也可以再当图标用。合成引擎的完整用法见 x-cmd/draw 的 skill。
+**要合成**(角标、图内嵌图、图文并排)用 draw 的象形合成接口 —— `https://x-cmd.com/iconbase/draw/badge?icon=infra:disk&text=x2` 之类;合成的 id 本身也可以再当图标用。象形合成引擎的完整用法见 x-cmd/draw 的 skill。
 
-### 搜不到商标时 —— 用合成表达
+### 搜不到商标时 —— 用象形合成表达
 
 库里的品牌标识是**别人的商标**,有些我们不收录(禁商用、禁改、条款各异、来源不明)。
 **但那不等于「表达不了这个意思」** —— 合成就是干这个的:

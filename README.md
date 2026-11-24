@@ -32,13 +32,7 @@ compose.json      哪些图标适合被合成(上下 / 框内嵌图)—— 构�
 <!-- gen:cats -->
 | cat | 来源 | 含义 | 许可怎么算 |
 | --- | --- | --- | --- |
-| `aws` | AWS 官方架构图标包 | AWS | 厂商图标包(商标归 AWS) |
-| `azure` | Microsoft Azure 官方图标包 | Azure | 厂商图标包(商标归 Microsoft) |
-| `gcp` | Google Cloud 官方图标集 | GCP | 厂商图标包(商标归 Google) |
 | `infra` | x-cmd/icon 自绘 | 通用基础设施 | Apache-2.0 |
-| `brand` | Wikimedia Commons(公有领域模板) | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
-| `si` | Simple Icons | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
-| `bootstrap` | Bootstrap Icons | Bootstrap | MIT(著作权) |
 | `db` | x-cmd/icon 自绘 | 数据库 | Apache-2.0 |
 | `ai` | x-cmd/icon 自绘 | AI | Apache-2.0 |
 | `k8s` | x-cmd/icon 自绘 | Kubernetes | Apache-2.0 |
@@ -56,10 +50,6 @@ compose.json      哪些图标适合被合成(上下 / 框内嵌图)—— 构�
 | `circuit` | x-cmd/icon 自绘 | 电路 | Apache-2.0 |
 | `music` | x-cmd/icon 自绘 | 音乐 | Apache-2.0 |
 | `food` | x-cmd/icon 自绘 | 食物 | Apache-2.0 |
-| `programming` | Simple Icons | 语言与框架 | CC0 |
-| `firebase` | Simple Icons | Firebase | CC0 |
-| `elastic` | Simple Icons | Elastic | CC0 |
-| `digitalocean` | Simple Icons | DigitalOcean | CC0 |
 | `network` | x-cmd/icon 自绘 | 网络设备 | Apache-2.0 |
 | `base` | x-cmd/icon 自绘 | 底座 | Apache-2.0 |
 | `frame` | x-cmd/icon 自绘 | 框架 | Apache-2.0 |
@@ -68,19 +58,29 @@ compose.json      哪些图标适合被合成(上下 / 框内嵌图)—— 构�
 | `vis` | x-cmd/icon 自绘 | 图表 | Apache-2.0 |
 | `nutrition` | x-cmd/icon 自绘 | 营养 | Apache-2.0 |
 | `transport` | x-cmd/icon 自绘 | 交通工具 | Apache-2.0 |
-| `aliyun` | 阿里云官方矢量图标包(2022 橙) | 阿里云 | 厂商图标包(商标归阿里云) |
-| `oci` | Oracle OCI 官方架构图标包(V24.2) | Oracle 云 | 厂商图标包(商标归 Oracle) |
-| `ibm` | IBM Cloud 官方架构图标包(architecture-icons) | IBM 云 | 厂商图标包(商标归 IBM) |
-| `iconpark` | IconPark(ByteDance) | IconPark | Apache-2.0 |
 | `people` | x-cmd/icon 自绘 | 人与职业 | Apache-2.0 |
 | `region` | x-cmd/icon 自绘 | 地区 | Apache-2.0 |
 | `filetype` | x-cmd/icon 自绘 | 文件类型 | Apache-2.0 |
-| `twemoji` | Twemoji | Emoji(Twemoji) | MIT |
-| `fluent` | Microsoft Fluent Emoji | Emoji(Fluent) | MIT |
-| `noto` | Noto Emoji | Emoji(Noto) | OFL-1.1 |
 | `aviation` | x-cmd/icon 自绘 | 航空 | Apache-2.0 |
 | `education` | x-cmd/icon 自绘 | 教育 | Apache-2.0 |
 | `weather` | x-cmd/icon 自绘 | 天气 | Apache-2.0 |
+| `aws` | AWS 官方架构图标包 | AWS | 厂商图标包(商标归 AWS) |
+| `azure` | Microsoft Azure 官方图标包 | Azure | 厂商图标包(商标归 Microsoft) |
+| `gcp` | Google Cloud 官方图标集 | GCP | 厂商图标包(商标归 Google) |
+| `aliyun` | 阿里云官方矢量图标包(2022 橙) | 阿里云 | 厂商图标包(商标归阿里云) |
+| `oci` | Oracle OCI 官方架构图标包(V24.2) | Oracle 云 | 厂商图标包(商标归 Oracle) |
+| `ibm` | IBM Cloud 官方架构图标包(architecture-icons) | IBM 云 | 厂商图标包(商标归 IBM) |
+| `brand` | Wikimedia Commons(公有领域模板) | 品牌标识 | PD-simple / PD-logo(素材本身);商标权另论,各归其权利人 |
+| `si` | Simple Icons | 品牌标识(Simple Icons) | CC0-1.0(SI 包级);个别图标另有许可 |
+| `programming` | Simple Icons | 语言与框架 | CC0 |
+| `firebase` | Simple Icons | Firebase | CC0 |
+| `elastic` | Simple Icons | Elastic | CC0 |
+| `digitalocean` | Simple Icons | DigitalOcean | CC0 |
+| `bootstrap` | Bootstrap Icons | Bootstrap | MIT(著作权) |
+| `iconpark` | IconPark(ByteDance) | IconPark | Apache-2.0 |
+| `twemoji` | Twemoji | Emoji(Twemoji) | MIT |
+| `fluent` | Microsoft Fluent Emoji | Emoji(Fluent) | MIT |
+| `noto` | Noto Emoji | Emoji(Noto) | OFL-1.1 |
 <!-- /gen:cats -->
 
 例:`aws:ec2`、`infra:disk-array`、`db:locked`、`vis:bar`、`si:php`、`brand:kubernetes`。
