@@ -114,7 +114,7 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 | 想表达 | 怎么合成 |
 | --- | --- |
-| 某个团队 | `/draw/icon-text?icon=people/v0:team&text=IBM` —— 一堆人 + 品牌标签 |
+| 某个团队 | `/draw/icon-text?icon=people/v0:team&text=IBM` —— 一堆人 + 文字标签 |
 | 某个角色的团队 | `/draw/icon-text?icon=people/v0:lawyer&text=IBM` —— 主体图形一换,语义就不同 |
 | 一个生态 | `/draw/icon-text?icon=people/v0:crowd&text=(vue)` |
 | 主体 + 版本 | `/draw/icon-text?icon=people/v0:team&text=IBM v2` |

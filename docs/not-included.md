@@ -6,7 +6,7 @@
 ## 先说合成:库里没有,照样能画
 
 iconbase 的图标是 24×24 的功能图形;**合成**是把它们按配方拼成一枚新的图 ——
-主体图形 + 一块标签、图形里嵌图形、角上挂一枚计数角标、两枚并成一枚。
+主体图形 + 一块标签、图形里嵌图形、角上挂一枚角标、两枚并成一枚。
 
 ```
 https://x-cmd.com/iconbase/draw/icon-text?icon=people/v0:team&text=IBM
@@ -20,9 +20,9 @@ https://x-cmd.com/iconbase/draw/icon-text?icon=people/v0:team&text=IBM
 
 | 手法 | 配方 | 例子 |
 | --- | --- | --- |
-| 品牌标签 | `/draw/icon-text?icon=<图标id>&text=<文字>` | `icon-text?icon=infra/v0:disk-array&text=(vue)` |
+| 文字标签 | `/draw/icon-text?icon=<图标id>&text=<文字>` | `icon-text?icon=infra/v0:disk-array&text=(vue)` |
 | 框内嵌图 | `/draw/in?icon=<框型图标id>&in=<内容图标id>` | `in?icon=frame/v0:whiteboard&in=common/v0:atom` |
-| 计数角标 | `/draw/badge?icon=<图标id>&rl=<数字>` | `badge?icon=infra/v0:cluster&rl=5` |
+| 角标 | `/draw/badge?icon=<图标id>&rl=<数字>` | `badge?icon=infra/v0:cluster&rl=5` |
 | 并排 | `/draw/stack?icons=<id1>,<id2>&layout=h` | `stack?icons=db/v0:replication,db/v0:cluster&layout=h` |
 
 图标 id 从 [`manifest.json`](https://x-cmd.com/iconbase/manifest.json) 查(键是

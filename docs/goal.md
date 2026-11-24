@@ -14,14 +14,14 @@
 
 | | |
 | --- | --- |
-| 图标 | **18797** 枚,49 个分类 |
-| 自绘 | 32 个分类、774 枚 —— 24×24 网格、彩色填充,Apache-2.0 |
-| 第三方 | 17 个分类、18023 枚 —— 厂商官方包、Simple Icons、Bootstrap、IconPark、三套 emoji |
-| 合成 | 四种手法:品牌标签 / 框内嵌图 / 计数角标 / 并排;产物是 SVG,可长缓存、可进版本库 |
+| 图标 | **18798** 枚,49 个分类 |
+| 自绘 | 32 个分类、776 枚 —— 24×24 网格、彩色填充,Apache-2.0 |
+| 第三方 | 17 个分类、18022 枚 —— 厂商官方包、Simple Icons、Bootstrap、IconPark、三套 emoji |
+| 合成 | 四种手法:文字标签 / 框内嵌图 / 角标 / 并排;角标里还能挂图标;产物是 SVG,可长缓存、可进版本库 |
 | 评分 | AI 盲评 + 人工反馈,均分 < 8 进重设计队列([评分系统](rating.md)) |
 | 站点 | https://x-cmd.com/iconbase/ |
 
-第三方里最大的几套:twemoji 4009、noto 3750、Simple Icons 3436、IconPark 2555、Bootstrap 2078、Fluent 1231。
+第三方里最大的几套:Twemoji 4009、Noto 3750、Simple Icons 3436、IconPark 2555、Bootstrap 2078、Fluent 1231。
 SVG 总体积 54.9 MB。
 
 ## 许可与协议

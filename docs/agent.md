@@ -1,6 +1,6 @@
 # 让你的 agent 检索 iconbase
 
-iconbase 是给**人和 agent**用的图标库:18797 枚图标、49 个分类,键名读出来就是画面。
+iconbase 是给**人和 agent**用的图标库:18798 枚图标、49 个分类,键名读出来就是画面。
 这一篇是给 agent 的入口。
 
 ## 一句 prompt
@@ -20,7 +20,7 @@ iconbase 是给**人和 agent**用的图标库:18797 枚图标、49 个分类,�
 ```
 # iconbase
 
-> 架构图图标库 —— 给人和 agent 用的图标数据库。18797 枚图标、49 个分类,键名读出来就是画面,每枚都知道自己从哪来、什么条款。
+> 架构图图标库 —— 给人和 agent 用的图标数据库。18798 枚图标、49 个分类,键名读出来就是画面,每枚都知道自己从哪来、什么条款。
 
 ## 先读这个
 
@@ -36,9 +36,9 @@ iconbase 是给**人和 agent**用的图标库:18797 枚图标、49 个分类,�
 ## 合成 —— 库里没有精确对应的,用合成表达
 
 - [合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
-- 品牌标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
+- 文字标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
 - 框内嵌图:`https://x-cmd.com/iconbase/draw/in?icon=<框型图标id>&in=<内容图标id>`
-- 计数角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>`
+- 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>`(角标里也能放图标:`rl=@<图标id>`)
 - 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h`
 - [合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
 
@@ -55,6 +55,7 @@ iconbase 是给**人和 agent**用的图标库:18797 枚图标、49 个分类,�
 
 `<cat>:<concept>` 是别名(指向该分类当前推荐的版本),`<cat>/v<n>:<concept>` 是具体版本。
 键从 manifest.json 里查,别凭记忆猜。
+
 ```
 
 ## skill 原文
@@ -179,7 +180,7 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 | 想表达 | 怎么合成 |
 | --- | --- |
-| 某个团队 | `/draw/icon-text?icon=people/v0:team&text=IBM` —— 一堆人 + 品牌标签 |
+| 某个团队 | `/draw/icon-text?icon=people/v0:team&text=IBM` —— 一堆人 + 文字标签 |
 | 某个角色的团队 | `/draw/icon-text?icon=people/v0:lawyer&text=IBM` —— 主体图形一换,语义就不同 |
 | 一个生态 | `/draw/icon-text?icon=people/v0:crowd&text=(vue)` |
 | 主体 + 版本 | `/draw/icon-text?icon=people/v0:team&text=IBM v2` |
@@ -260,10 +261,10 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 ## agent 实际怎么用
 
 1. **先查后取** —— `manifest.json` 是全库清单(键 + 名称 + 分类 + 分片)。
-   别凭记忆猜键名:18797 枚,别名还指向推荐版。
+   别凭记忆猜键名:18798 枚,别名还指向推荐版。
 2. **取字节** —— `api/icons.json?ids=<id1>,<id2>` 一次拿多个,返回 data URI,
    直接内联进 SVG / HTML / Markdown。
-3. **语义不准就用合成** —— 库里没有精确对应的,别硬凑一枚。用主体图形 + 品牌标签:
+3. **语义不准就用合成** —— 库里没有精确对应的,别硬凑一枚。用主体图形 + 文字标签:
    `draw/icon-text?icon=people/v0:team&text=IBM`。
    四种手法见 [合成 Gallery](https://x-cmd.com/iconbase/compose)。
 4. **别自己画商标** —— 品牌标识用**文字标签**表达,不要转载别人的 logo 图形。
