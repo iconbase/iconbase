@@ -107,6 +107,24 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 **要合成**(角标、图内嵌图、图文并排)用 draw 的合成接口 —— `https://x-cmd.com/iconbase/draw/badge?icon=infra:disk&text=x2` 之类;合成的 id 本身也可以再当图标用。合成引擎的完整用法见 x-cmd/draw 的 skill。
 
+### 搜不到商标时 —— 用合成表达
+
+库里的品牌标识是**别人的商标**,有些我们不收录(禁商用、禁改、条款各异、来源不明)。
+**但那不等于「表达不了这个意思」** —— 合成就是干这个的:
+
+| 想表达 | 怎么合成 |
+| --- | --- |
+| 某个团队 | `/draw/badge?icon=people/v0:team&ru=IBM` —— 一堆人,右上角挂标签 |
+| 某个角色的团队 | `/draw/badge?icon=people/v0:lawyer&ru=IBM` —— 主体图形一换,语义就不同 |
+| 一个生态 | `/draw/badge?icon=people/v0:crowd&ru=(vue)` |
+| 版本 / 计数 | `/draw/badge?icon=people/v0:team&ru=IBM&rl=v2` —— 多角可挂 |
+
+角点键:`lu=` 左上 / `ru=` 右上 / `ll=` 左下 / `rl=` 右下。
+另外还有 `stack`(横竖叠加)、`icon-text` / `text-icon`(图文并排)。
+
+**用文字标签,不用别人的 logo 图形** —— 这是指示性使用里最稳的一档:
+品牌名作为普通文字出现在角标里,用的是文字,不是商标图形,也不碰著作权。
+
 ## 6. 版本与别名
 
 | | 键名 | 拿到什么 |

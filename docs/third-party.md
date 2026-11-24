@@ -23,6 +23,11 @@ CC0. Please see individual licenses where available.」—— 大部分图标没
 <!-- gen:si-licences -->
 | 许可 | 数量 | 怎么处理 |
 | --- | ---: | --- |
+| CC0-1.0(默认 / 明写) | 3259 | 直接用 |
+| Apache-2.0 / MIT / BSD-3-Clause / Unlicense | 84 | 直接用 |
+| CC-BY-4.0 / 3.0 / 2.5 | 24 | **要署名** —— 署名与许可链接记在 `si-manifest.json` |
+| CC-BY-SA-4.0 / 3.0 / 2.5 / 2.0 | 44 | **文件级传染** —— 传染的是那一个文件,不牵连全仓;各记各的许可 |
+| GPL-2.0/3.0、AGPL-3.0、MPL-2.0 | 25 | 同上,文件级 |
 
 共 3436 个。
 <!-- /gen:si-licences -->
@@ -40,11 +45,12 @@ CC 与 GPL 都明确 mere aggregation 不传染,所以这些文件放在 Apache-
 <!-- gen:si-excluded -->
 | 许可 | 原因 | 数量 | 品牌 |
 | --- | --- | ---: | --- |
-| [object Object] | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
-| [object Object] | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
-| [object Object] | 禁商用 + 传染 | 4 | Misskey、Robot Framework、Sass、Vue.js |
-| [object Object] | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
-| [object Object] | 禁改 | 2 | JPEG、Slint |
+| custom | 条款各异 | 23 | Broadcom、Chia Network、Contentstack、Coreboot、Dify、Douban、Douban Read、Effect、FCC、Fedora、Flux、Graphite、Harbor、Kedro、Keycloak、Lemmy、MiniMax、Pleroma、Qase、Quasar、RustFS、Webex、Webpack |
+| CC-BY-NC-4.0 | 禁商用 | 4 | CocoaPods、Let's Encrypt、NodeBB、RuboCop |
+| CC-BY-NC-ND-4.0 | 禁商用 + 禁改 | 3 | GameBanana、PyCQA、Tauri |
+| CC-BY-NC-SA-4.0 | 禁商用 + 传染 | 3 | Misskey、Robot Framework、Vue.js |
+| CC-BY-ND-4.0 | 禁改 | 2 | JPEG、Slint |
+| CC-BY-NC-SA-3.0 | 禁商用 + 传染 | 1 | Sass |
 <!-- /gen:si-excluded -->
 
 **禁商用**(CC-BY-NC)与本库「可商用」的承诺直接冲突,一律不收。
