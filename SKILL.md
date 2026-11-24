@@ -118,6 +118,8 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 | 某个角色的团队 | `/draw/icon-text?icon=people/v0:lawyer&text=IBM` —— 主体图形一换,语义就不同 |
 | 一个生态 | `/draw/icon-text?icon=people/v0:crowd&text=(vue)` |
 | 主体 + 版本 | `/draw/icon-text?icon=people/v0:team&text=IBM v2` |
+| 框里放东西 | `/draw/in?icon=frame/v0:browser&in=vis/v0:bar` —— 白板、显示器、终端各有一块内容区 |
+| 角上挂状态标 | `/draw/badge?icon=infra/v0:server&ll=@common/v0:star` —— 角标里也能放图标 |
 
 **用文字标签,不用别人的 logo 图形** —— 这是指示性使用里最稳的一档:
 品牌名作为普通文字出现,用的是文字,不是商标图形,也不碰著作权。
@@ -126,6 +128,10 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 那是它本来的用法。但拿它挂品牌名会盖住主体图形,不好看:
 `?icon=people/v0:team&ru=IBM` 那个气泡正好压在中间那个人的头上。
 **挂品牌名用 `icon-text`。**
+
+角标也能**挂图标**:`@` 后面写图标 id,角标变成一枚白底圆片,里面是那枚图标。
+角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂:
+`?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3` —— 收藏、国别、计数,各占一角。
 
 ## 6. 版本与别名
 
