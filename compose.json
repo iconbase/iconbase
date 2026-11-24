@@ -1,0 +1,21 @@
+{
+  "_说明": "哪些图标适合被合成 —— 上下(v)与框内嵌图(in)两种特殊玩法。角标那种是公式化的(任何图标都能挂一枚计数),不在这儿写。构建会把这一份灌进 manifest 的 compose 字段,站点与文档都从那儿取。",
+
+  "v": [
+    { "top": "infra/v0:server", "bottom": "infra/v0:database", "label": "服务与它的存储", "desc": "上面是服务,下面是它的库" },
+    { "top": "infra/v0:api", "bottom": "infra/v0:server", "label": "接口与它背后的服务", "desc": "上面是接口,下面是机器" },
+    { "top": "infra/v0:container", "bottom": "k8s/v0:service", "label": "容器与它的编排", "desc": "上面是容器,下面是管它的编排" },
+    { "top": "db/v0:replication", "bottom": "db/v0:cluster", "label": "主库与它的副本", "desc": "上面是主库,下面是复制出去的那一份" }
+  ],
+
+  "in": [
+    { "host": "frame/v0:terminal", "text": "kubectl", "label": "终端里敲 kubectl", "desc": "内容区里放一段文字" },
+    { "host": "frame/v0:browser", "content": "infra/v0:monitor", "label": "浏览器里的监控面板", "desc": "浏览器里放一块面板" },
+    { "host": "frame/v0:whiteboard", "content": "common/v0:atom", "label": "白板上的原子", "desc": "白板的内容区本来就是给人写字的" },
+    { "host": "frame/v0:display", "content": "vis/v0:bar", "label": "显示器上的柱图", "desc": "屏幕里放一枚图表" },
+    { "host": "frame/v0:laptop", "content": "dev/v0:architecture", "label": "笔记本上的架构图", "desc": "框里的内容也可以是别的图形" },
+    { "host": "frame/v0:cloud", "content": "infra/v0:server", "label": "云上的机器", "desc": "云自己也有内容区" },
+    { "host": "frame/v0:phone", "content": "common/v0:gear", "label": "手机里的设置", "desc": "窄框里放一枚居中的图形" },
+    { "host": "frame/v0:tablet", "content": "common/v0:code", "label": "平板上的代码", "desc": "框里的一段代码" }
+  ]
+}
