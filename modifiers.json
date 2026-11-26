@@ -1,0 +1,546 @@
+{
+ "_说明": "百搭词:能挂在任何图标上的那些词 —— 国名/地区名、名次(1st/2nd)、评价词。",
+ "_为什么单列": "它们不是概念,是修饰词:「美国」说的是**另一枚**图标是谁的,不是那枚图标是什么。所以匹配走专门的规则(命中即那枚图标),合成时也只能当角标/上标,不能当主体。其余的概念才走二部图。",
+ "_字段": "id 那枚图标 · kind 它的角色(旗/奖牌/对勾)· alias 别的说法(匹配用)",
+ "modifiers": {
+  "中国": {
+   "id": "twemoji:flag-china",
+   "kind": "flag",
+   "alias": []
+  },
+  "欧盟": {
+   "id": "twemoji:flag-european-union",
+   "kind": "flag",
+   "alias": [
+    "eu",
+    "european union"
+   ]
+  },
+  "美国": {
+   "id": "twemoji:flag-united-states",
+   "kind": "flag",
+   "alias": [
+    "usa",
+    "us",
+    "america",
+    "united states of america"
+   ]
+  },
+  "日本": {
+   "id": "twemoji:flag-japan",
+   "kind": "flag",
+   "alias": []
+  },
+  "韩国": {
+   "id": "twemoji:flag-south-korea",
+   "kind": "flag",
+   "alias": [
+    "korea",
+    "south korea",
+    "republic of korea"
+   ]
+  },
+  "朝鲜": {
+   "id": "twemoji:flag-north-korea",
+   "kind": "flag",
+   "alias": [
+    "dprk",
+    "north korea"
+   ]
+  },
+  "新加坡": {
+   "id": "twemoji:flag-singapore",
+   "kind": "flag",
+   "alias": []
+  },
+  "印度": {
+   "id": "twemoji:flag-india",
+   "kind": "flag",
+   "alias": []
+  },
+  "俄罗斯": {
+   "id": "twemoji:flag-russia",
+   "kind": "flag",
+   "alias": []
+  },
+  "德国": {
+   "id": "twemoji:flag-germany",
+   "kind": "flag",
+   "alias": []
+  },
+  "法国": {
+   "id": "twemoji:flag-france",
+   "kind": "flag",
+   "alias": []
+  },
+  "英国": {
+   "id": "twemoji:flag-united-kingdom",
+   "kind": "flag",
+   "alias": [
+    "uk",
+    "britain",
+    "great britain"
+   ]
+  },
+  "意大利": {
+   "id": "twemoji:flag-italy",
+   "kind": "flag",
+   "alias": []
+  },
+  "西班牙": {
+   "id": "twemoji:flag-spain",
+   "kind": "flag",
+   "alias": []
+  },
+  "荷兰": {
+   "id": "twemoji:flag-netherlands",
+   "kind": "flag",
+   "alias": [
+    "holland",
+    "the netherlands"
+   ]
+  },
+  "瑞典": {
+   "id": "twemoji:flag-sweden",
+   "kind": "flag",
+   "alias": []
+  },
+  "瑞士": {
+   "id": "twemoji:flag-switzerland",
+   "kind": "flag",
+   "alias": []
+  },
+  "加拿大": {
+   "id": "twemoji:flag-canada",
+   "kind": "flag",
+   "alias": []
+  },
+  "墨西哥": {
+   "id": "twemoji:flag-mexico",
+   "kind": "flag",
+   "alias": []
+  },
+  "巴西": {
+   "id": "twemoji:flag-brazil",
+   "kind": "flag",
+   "alias": []
+  },
+  "阿根廷": {
+   "id": "twemoji:flag-argentina",
+   "kind": "flag",
+   "alias": []
+  },
+  "澳大利亚": {
+   "id": "twemoji:flag-australia",
+   "kind": "flag",
+   "alias": []
+  },
+  "新西兰": {
+   "id": "twemoji:flag-new-zealand",
+   "kind": "flag",
+   "alias": [
+    "nz"
+   ]
+  },
+  "越南": {
+   "id": "twemoji:flag-vietnam",
+   "kind": "flag",
+   "alias": []
+  },
+  "泰国": {
+   "id": "twemoji:flag-thailand",
+   "kind": "flag",
+   "alias": []
+  },
+  "马来西亚": {
+   "id": "twemoji:flag-malaysia",
+   "kind": "flag",
+   "alias": []
+  },
+  "印度尼西亚": {
+   "id": "twemoji:flag-indonesia",
+   "kind": "flag",
+   "alias": []
+  },
+  "菲律宾": {
+   "id": "twemoji:flag-philippines",
+   "kind": "flag",
+   "alias": []
+  },
+  "埃及": {
+   "id": "twemoji:flag-egypt",
+   "kind": "flag",
+   "alias": []
+  },
+  "南非": {
+   "id": "twemoji:flag-south-africa",
+   "kind": "flag",
+   "alias": [
+    "rsa",
+    "republic of south africa"
+   ]
+  },
+  "尼日利亚": {
+   "id": "twemoji:flag-nigeria",
+   "kind": "flag",
+   "alias": []
+  },
+  "沙特阿拉伯": {
+   "id": "twemoji:flag-saudi-arabia",
+   "kind": "flag",
+   "alias": []
+  },
+  "阿联酋": {
+   "id": "twemoji:flag-united-arab-emirates",
+   "kind": "flag",
+   "alias": [
+    "uae",
+    "emirates"
+   ]
+  },
+  "以色列": {
+   "id": "twemoji:flag-israel",
+   "kind": "flag",
+   "alias": []
+  },
+  "伊朗": {
+   "id": "twemoji:flag-iran",
+   "kind": "flag",
+   "alias": [
+    "persia"
+   ]
+  },
+  "伊拉克": {
+   "id": "twemoji:flag-iraq",
+   "kind": "flag",
+   "alias": []
+  },
+  "乌克兰": {
+   "id": "twemoji:flag-ukraine",
+   "kind": "flag",
+   "alias": []
+  },
+  "波兰": {
+   "id": "twemoji:flag-poland",
+   "kind": "flag",
+   "alias": []
+  },
+  "挪威": {
+   "id": "twemoji:flag-norway",
+   "kind": "flag",
+   "alias": []
+  },
+  "芬兰": {
+   "id": "twemoji:flag-finland",
+   "kind": "flag",
+   "alias": []
+  },
+  "丹麦": {
+   "id": "twemoji:flag-denmark",
+   "kind": "flag",
+   "alias": []
+  },
+  "奥地利": {
+   "id": "twemoji:flag-austria",
+   "kind": "flag",
+   "alias": []
+  },
+  "比利时": {
+   "id": "twemoji:flag-belgium",
+   "kind": "flag",
+   "alias": []
+  },
+  "爱尔兰": {
+   "id": "twemoji:flag-ireland",
+   "kind": "flag",
+   "alias": [
+    "roi",
+    "republic of ireland"
+   ]
+  },
+  "葡萄牙": {
+   "id": "twemoji:flag-portugal",
+   "kind": "flag",
+   "alias": []
+  },
+  "希腊": {
+   "id": "twemoji:flag-greece",
+   "kind": "flag",
+   "alias": []
+  },
+  "智利": {
+   "id": "twemoji:flag-chile",
+   "kind": "flag",
+   "alias": []
+  },
+  "秘鲁": {
+   "id": "twemoji:flag-peru",
+   "kind": "flag",
+   "alias": []
+  },
+  "哥伦比亚": {
+   "id": "twemoji:flag-colombia",
+   "kind": "flag",
+   "alias": []
+  },
+  "委内瑞拉": {
+   "id": "twemoji:flag-venezuela",
+   "kind": "flag",
+   "alias": []
+  },
+  "中国香港": {
+   "id": "twemoji:flag-hong-kong-sar-china",
+   "kind": "flag",
+   "alias": [
+    "hkg",
+    "hk"
+   ]
+  },
+  "中国澳门": {
+   "id": "twemoji:flag-macao-sar-china",
+   "kind": "flag",
+   "alias": [
+    "macau"
+   ]
+  },
+  "台湾": {
+   "id": "twemoji:flag-taiwan",
+   "kind": "flag",
+   "alias": []
+  },
+  "联合国": {
+   "id": "twemoji:flag-united-nations",
+   "kind": "flag",
+   "alias": [
+    "un",
+    "united nations"
+   ]
+  },
+  "哈萨克斯坦": {
+   "id": "twemoji:flag-kazakhstan",
+   "kind": "flag",
+   "alias": []
+  },
+  "巴基斯坦": {
+   "id": "twemoji:flag-pakistan",
+   "kind": "flag",
+   "alias": []
+  },
+  "孟加拉国": {
+   "id": "twemoji:flag-bangladesh",
+   "kind": "flag",
+   "alias": []
+  },
+  "斯里兰卡": {
+   "id": "twemoji:flag-sri-lanka",
+   "kind": "flag",
+   "alias": []
+  },
+  "尼泊尔": {
+   "id": "twemoji:flag-nepal",
+   "kind": "flag",
+   "alias": []
+  },
+  "缅甸": {
+   "id": "twemoji:flag-myanmar-burma",
+   "kind": "flag",
+   "alias": [
+    "burma"
+   ]
+  },
+  "柬埔寨": {
+   "id": "twemoji:flag-cambodia",
+   "kind": "flag",
+   "alias": []
+  },
+  "老挝": {
+   "id": "twemoji:flag-laos",
+   "kind": "flag",
+   "alias": []
+  },
+  "蒙古": {
+   "id": "twemoji:flag-mongolia",
+   "kind": "flag",
+   "alias": []
+  },
+  "叙利亚": {
+   "id": "twemoji:flag-syria",
+   "kind": "flag",
+   "alias": []
+  },
+  "约旦": {
+   "id": "twemoji:flag-jordan",
+   "kind": "flag",
+   "alias": []
+  },
+  "黎巴嫩": {
+   "id": "twemoji:flag-lebanon",
+   "kind": "flag",
+   "alias": []
+  },
+  "也门": {
+   "id": "twemoji:flag-yemen",
+   "kind": "flag",
+   "alias": []
+  },
+  "阿富汗": {
+   "id": "twemoji:flag-afghanistan",
+   "kind": "flag",
+   "alias": []
+  },
+  "乌兹别克斯坦": {
+   "id": "twemoji:flag-uzbekistan",
+   "kind": "flag",
+   "alias": []
+  },
+  "白俄罗斯": {
+   "id": "twemoji:flag-belarus",
+   "kind": "flag",
+   "alias": []
+  },
+  "保加利亚": {
+   "id": "twemoji:flag-bulgaria",
+   "kind": "flag",
+   "alias": []
+  },
+  "塞尔维亚": {
+   "id": "twemoji:flag-serbia",
+   "kind": "flag",
+   "alias": []
+  },
+  "克罗地亚": {
+   "id": "twemoji:flag-croatia",
+   "kind": "flag",
+   "alias": []
+  },
+  "斯洛伐克": {
+   "id": "twemoji:flag-slovakia",
+   "kind": "flag",
+   "alias": []
+  },
+  "斯洛文尼亚": {
+   "id": "twemoji:flag-slovenia",
+   "kind": "flag",
+   "alias": []
+  },
+  "爱沙尼亚": {
+   "id": "twemoji:flag-estonia",
+   "kind": "flag",
+   "alias": []
+  },
+  "拉脱维亚": {
+   "id": "twemoji:flag-latvia",
+   "kind": "flag",
+   "alias": []
+  },
+  "立陶宛": {
+   "id": "twemoji:flag-lithuania",
+   "kind": "flag",
+   "alias": []
+  },
+  "摩尔多瓦": {
+   "id": "twemoji:flag-moldova",
+   "kind": "flag",
+   "alias": []
+  },
+  "阿尔巴尼亚": {
+   "id": "twemoji:flag-albania",
+   "kind": "flag",
+   "alias": []
+  },
+  "北马其顿": {
+   "id": "twemoji:flag-north-macedonia",
+   "kind": "flag",
+   "alias": [
+    "macedonia"
+   ]
+  },
+  "波黑": {
+   "id": "twemoji:flag-bosnia-and-herzegovina",
+   "kind": "flag",
+   "alias": []
+  },
+  "冰岛": {
+   "id": "twemoji:flag-iceland",
+   "kind": "flag",
+   "alias": []
+  },
+  "马耳他": {
+   "id": "twemoji:flag-malta",
+   "kind": "flag",
+   "alias": []
+  },
+  "塞浦路斯": {
+   "id": "twemoji:flag-cyprus",
+   "kind": "flag",
+   "alias": []
+  },
+  "卢森堡": {
+   "id": "twemoji:flag-luxembourg",
+   "kind": "flag",
+   "alias": []
+  },
+  "摩纳哥": {
+   "id": "twemoji:flag-monaco",
+   "kind": "flag",
+   "alias": []
+  },
+  "安道尔": {
+   "id": "twemoji:flag-andorra",
+   "kind": "flag",
+   "alias": []
+  },
+  "列支敦士登": {
+   "id": "twemoji:flag-liechtenstein",
+   "kind": "flag",
+   "alias": []
+  },
+  "圣马力诺": {
+   "id": "twemoji:flag-san-marino",
+   "kind": "flag",
+   "alias": []
+  },
+  "梵蒂冈": {
+   "id": "twemoji:flag-vatican-city",
+   "kind": "flag",
+   "alias": []
+  },
+  "1st": {
+   "id": "noto:1st-place-medal",
+   "kind": "medal",
+   "alias": [
+    "first",
+    "第一名",
+    "冠军"
+   ]
+  },
+  "2nd": {
+   "id": "noto:2nd-place-medal",
+   "kind": "medal",
+   "alias": [
+    "second",
+    "第二名",
+    "亚军"
+   ]
+  },
+  "3rd": {
+   "id": "noto:3rd-place-medal",
+   "kind": "medal",
+   "alias": [
+    "third",
+    "第三名",
+    "季军"
+   ]
+  },
+  "好": {
+   "id": "common/v0:check",
+   "kind": "check",
+   "alias": [
+    "ok",
+    "good",
+    "对",
+    "通过"
+   ]
+  }
+ }
+}
