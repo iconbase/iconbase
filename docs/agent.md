@@ -9,7 +9,7 @@ iconbase 是给**人和 agent**用的图标库:18798 枚图标、49 个分类,�
 
 ```
 读 https://x-cmd.com/iconbase/llms.txt —— 那是 iconbase(图标库)的机器可读入口。
-按里面的说明检索图标:要语义准确的先查 manifest.json;库里没有精确对应的就用象形合成
+按里面的说明检索图标:要语义准确的先查 search-index.json;库里没有精确对应的就用象形合成
 (/draw/icon-text?icon=<id>&text=<文字> 这类),把配方 URL 给我。
 ```
 
@@ -20,41 +20,85 @@ iconbase 是给**人和 agent**用的图标库:18798 枚图标、49 个分类,�
 ```
 # iconbase
 
-> 架构图图标库 —— 给人和 agent 用的图标数据库。18798 枚图标、49 个分类,键名读出来就是画面,每枚都知道自己从哪来、什么条款。
+> An icon database for architecture diagrams — for people and for agents. 18,798 icons across 49 categories, keyed so that the key reads like the picture. Every icon knows where it came from and under what terms it may be used.
 
-## 先读这个
+## What you can get
 
-- [给 agent 的用法](https://github.com/iconbase/iconbase/blob/main/docs/agent.md):一句 prompt、llms.txt、skill 原文
+| What | Where |
+| --- | --- |
+| One icon, as SVG | `https://x-cmd.com/iconbase/i/<cat>/<concept>.svg` |
+| Several at once, as data URIs | `https://x-cmd.com/iconbase/api/icons.json?ids=<id1>,<id2>` |
+| The whole catalogue (keys, English names, shard of each) | `https://x-cmd.com/iconbase/search-index.json` |
+| Chinese names | `https://x-cmd.com/iconbase/names.zh.json` |
+| Concepts, aliases, modifier words | `https://x-cmd.com/iconbase/concepts.json` |
+| Category index (what is in each package) | `https://x-cmd.com/iconbase/index.json` |
+| One icon's page — names, licence, source, related icons | `https://x-cmd.com/iconbase/icon/<key>` |
+| The browser UI | `https://x-cmd.com/iconbase/` |
+| The command line | `iconbase search <word>` · `iconbase get <key>` · `iconbase compose badge --icon <key> --rl <text>` |
 
-## 检索
+## Keys
 
-- [全库清单(机器读)](https://x-cmd.com/iconbase/manifest.json):键 + 名称 + 分类 + 分片
-- [分类索引](https://x-cmd.com/iconbase/index.json):分类与各包大小
-- [按 id 取 data URI](https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked):一次拿多个,直接内联
-- [查询页](https://x-cmd.com/iconbase/):人在浏览器里搜
+`<cat>:<concept>` is the alias — it always resolves to the currently recommended version of that concept in that category.
+`<cat>/v<n>:<concept>` is one specific version.
 
-## 象形合成 —— 库里没有精确对应的,用合成表达
+Read keys from `search-index.json`. Don't guess them: there are 18,798 of them, and a wrong key is a 404.
 
-- [象形合成 Gallery](https://x-cmd.com/iconbase/compose):可复制的例子
-- 文字标签:`https://x-cmd.com/iconbase/draw/icon-text?icon=<图标id>&text=<文字>`
-- 框内嵌图:`https://x-cmd.com/iconbase/draw/in?icon=<框型图标id>&in=<内容图标id>`
-- 角标:`https://x-cmd.com/iconbase/draw/badge?icon=<图标id>&rl=<数字>` —— 角标里也能放图标:`rl=@<图标id>`(图形自己当底,不带圆框);`scale=` 调大小
-- 并排:`https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h` —— `d=` 是两枚重心之间的距离(单位:icon 大小,1 = 挨着,0.5 = 压住一半)
-- [象形合成编辑器](https://x-cmd.com/iconbase/editor):调参数、复制 URL
+## Fetching
 
-## 规则
+```sh
+# one icon
+curl -O https://x-cmd.com/iconbase/i/infra/v0/server.svg
 
-- [不引入的 icon,以及怎么用象形合成代替](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md)
-- [协议与现状](https://github.com/iconbase/iconbase/blob/main/docs/goal.md)
-- [评分系统](https://github.com/iconbase/iconbase/blob/main/docs/rating.md)
-- [下架申请](https://github.com/iconbase/iconbase/blob/main/docs/takedown.md)
-- [贡献指南](https://github.com/iconbase/iconbase/blob/main/CONTRIBUTING.md)
-- [skill 原文](https://github.com/iconbase/iconbase/blob/main/SKILL.md)
+# several at once — { "id": "data:image/svg+xml;base64,…" }
+curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
+```
 
-## 键名
+- When the key carries a version the path follows it: `infra/v0:server` → `i/infra/v0/server.svg`.
+- The alias and the specific version both resolve; the alias points at the recommended version's file.
+- To embed an icon in SVG, HTML, slides or a document, use the data URI endpoint (`ids=`, comma separated).
+- The catalogue is split into shards of at most 80 icons. `index.json` says which shards each package has; `search-index.json` gives the shard of every icon.
 
-`<cat>:<concept>` 是别名(指向该分类当前推荐的版本),`<cat>/v<n>:<concept>` 是具体版本。
-键从 manifest.json 里查,别凭记忆猜。
+## The same thing has different names — concepts are normalised
+
+Vendors name the same thing differently, and the catalogue keeps each vendor's own name. `concepts.json` normalises that:
+
+> 云主机 = 虚拟机 = virtual machine — one concept, several icons: `aws:ec2`, `azure:vm`, `aliyun:ecs`, `gcp:gce`.
+
+It also carries:
+
+- **aliases** — other words for the same thing. `usa` finds the United States flag; `pad` finds the tablet; `虚拟机` finds every vendor's virtual machine.
+- **modifiers** — words that modify another icon rather than name one: country names, `1st`, `好`. They belong on a badge, never as the subject of a search.
+
+## When the library has no exact match — compose
+
+Brand marks are other people's trademarks, and some of them are not redistributed at all. That does not mean the meaning cannot be expressed — composition is exactly what it is for.
+
+| To express | How |
+| --- | --- |
+| A count or a state | `/draw/badge?icon=<key>&rl=<text>` — a small badge on the lower right |
+| A badge that is itself an icon | `rl=@<key>` — the shape is its own background, no ring |
+| Text beside a shape | `/draw/icon-text?icon=<key>&text=<text>` |
+| Something inside a shape | `/draw/in?icon=<framed key>&in=<key>` (or `text=`) |
+| Two shapes as one | `/draw/stack?icons=<key1>,<key2>&layout=h` (side by side) or `layout=v` (stacked) |
+
+Badge positions: `rl=` lower right, `ll=` lower left, `ru=` upper right, `lu=` upper left — and `c=`, dead centre rather than in a corner.
+
+Tuning: `scale=` size · `ink=` ink colour (line icons take their colour from `currentColor`) · `d=` the distance between two shapes' centres in `stack` (1 = touching, 0.5 = half overlapped) · `px=` output size in pixels.
+
+The same URL always produces the same picture, so a composed URL can be committed, shared or cached.
+
+Gallery with copyable recipes: https://x-cmd.com/iconbase/docs/compose — the editor: https://x-cmd.com/iconbase/editor
+
+## Rules that matter
+
+- **Self-drawn icons** (infra, db, ai, k8s, sec, vis, travel, …) are Apache-2.0 — use them freely, keep the NOTICE.
+- **Cloud vendor marks** (aws, azure, gcp, aliyun, oci) are the vendors' own artwork — use them as they are. Do not recolour, reshape or stretch them.
+- **Brand marks** (si) carry the terms of whoever owns the mark. Check the licence conclusion on the icon's page before using one; `caution` means indicative reference only.
+- **Do not redraw a brand mark** to get around its terms — compose the meaning instead: a generic shape plus a text label.
+
+The category decides how the licence is counted. Don't mix them.
+
+Details: [icons that are not included, and how to compose instead](https://github.com/iconbase/iconbase/blob/main/docs/not-included.md) · [terms and current state](https://github.com/iconbase/iconbase/blob/main/docs/goal.md) · [the skill, in full](https://github.com/iconbase/iconbase/blob/main/SKILL.md) · [contributing](https://github.com/iconbase/iconbase/blob/main/CONTRIBUTING.md)
 
 ```
 
@@ -94,7 +138,7 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 ## 3. 工作流程
 
 1. **定分类**:先想清楚这个概念属于哪一族(云服务 → `aws`/`azure`/`gcp`;数据库 → `db`;安全 → `sec`;图表 → `vis`;生活概念 → `travel`/`food`/`weather`…)。分类决定许可怎么算,别混。
-2. **查键名**:`https://x-cmd.com/iconbase/manifest.json` 是全库清单(英文 id + 结构信息),`manifest.zh.json` 是中文名;也可以在站点上搜。
+2. **查键名**:`https://x-cmd.com/iconbase/search-index.json` 是全库瘦索引(每枚的 id / 英文名 / 归属的片),`names.zh.json` 是中文名,`concepts.json` 是别名与跨厂商归一的概念;也可以在站点上搜,或用命令行 `iconbase search <词>`。
 3. **取文件**:`curl` 那个 `i/<cat>/<concept>.svg` 就行,或者用 data URI 接口一次性拿多个。
 4. **落到文档里**:markdown 里用 `![](https://x-cmd.com/iconbase/i/<cat>/<concept>.svg)`;HTML/代码里直接内联 SVG(自包含,无外部依赖)。
 5. **核许可**:自绘的随便用(Apache-2.0,保留 NOTICE);厂商标识原样用、不改色不改形;品牌图形看清单里的许可结论,`caution` 的只做指示性引用。
@@ -170,6 +214,8 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 - 键名带版本时路径跟着走:`infra/v0:server` → `i/infra/v0/server.svg`。
 - 别名与具体版本两个键都取得到,别名指向的就是推荐版本那份文件。
 - 想把图标内嵌进 SVG、PPT 或 HTML,用 data URI 接口(`ids=` 逗号分隔)。
+- 想看一枚图标的完整信息(名字、许可、出处、相关图标),打开 `https://x-cmd.com/iconbase/icon/<键名>` —— 那是服务端渲染的,agent 也能直接读。
+- 命令行(`iconbase`):`search <词>`、`get <键名>`、`compose <方式> --icon X --rl Y`、`icons --ids a,b`。
 
 **要合成**(角标、图内嵌图、图文并排)用 draw 的象形合成接口 —— `https://x-cmd.com/iconbase/draw/badge?icon=infra:disk&text=x2` 之类;合成的 id 本身也可以再当图标用。象形合成引擎的完整用法见 x-cmd/draw 的 skill。
 
@@ -197,14 +243,12 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 角标也能**挂图标**:`@` 后面写图标 id。图标角标**不带圆框** —— 图形自己的形状就是底,
 融进底图里(文字角标是深底白字,反过来:再套一圈底就把主体盖住了)。
-角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂:
+角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂;还有一位 `c=` —— 压在图形正中(不是角上):
 `?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3&scale=0.8` —— 收藏、国别、计数,各占一角。
-
-还有一位 `c=` —— 角标压在图形**正中**(不是角上):
-`?icon=infra/v0:server&c=@common/v0:flag`。它跟四角不冲突,想同时挂就一起给。
+正中的那位:`?icon=infra/v0:server&c=@common/v0:flag` —— 旗压在图形正中。
 `scale=` 调角标大小(0.5~2)。
 
-**哪些图标适合被合成** —— 清单(manifest.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
+**哪些图标适合被合成** —— 分片清单(manifest.<分类>.<片号>.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
 角标那种是公式化的(任何图标都能挂一枚计数),不用查清单。
 
 两枚图标并成一枚时,`d=` 是它们**重心之间**的距离,单位是 icon 大小:
@@ -272,7 +316,7 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 ## agent 实际怎么用
 
-1. **先查后取** —— `manifest.json` 是全库清单(键 + 名称 + 分类 + 分片)。
+1. **先查后取** —— `search-index.json` 是全库瘦索引(键 + 名称 + 归属的片)。
    别凭记忆猜键名:18798 枚,别名还指向推荐版。
 2. **取字节** —— `api/icons.json?ids=<id1>,<id2>` 一次拿多个,返回 data URI,
    直接内联进 SVG / HTML / Markdown。

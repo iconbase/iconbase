@@ -50,7 +50,7 @@ Simple Icons 收录时若品牌给了使用规范,链接一并记下。
 
 ```
 https://x-cmd.com/iconbase/i/<cat>/<concept>.svg          枚 SVG
-https://x-cmd.com/iconbase/manifest.json                  全库清单(机器读)
+https://x-cmd.com/iconbase/search-index.json                  全库瘦索引(机器读)
 https://x-cmd.com/iconbase/index.json                     分类索引
 https://x-cmd.com/iconbase/api/icons.json?ids=a,b         按 id 取 data URI
 ```
@@ -65,7 +65,7 @@ https://x-cmd.com/iconbase/draw/stack?icons=<id1>,<id2>&layout=h
 ```
 
 键名规范:`<cat>:<concept>` 是别名(指向该分类当前推荐的版本),
-`<cat>/v<n>:<concept>` 是具体版本。清单在 `manifest.json` 里,
+`<cat>/v<n>:<concept>` 是具体版本。清单在 `search-index.json` 里,
 [象形合成 Gallery](https://x-cmd.com/iconbase/compose) 有可复制的例子。
 
 ## 相关

@@ -25,7 +25,7 @@ https://x-cmd.com/iconbase/draw/icon-text?icon=people/v0:team&text=IBM
 | 角标 | `/draw/badge?icon=<图标id>&rl=<数字>` | `badge?icon=infra/v0:cluster&rl=5` |
 | 并排 | `/draw/stack?icons=<id1>,<id2>&layout=h` | `stack?icons=db/v0:replication,db/v0:cluster&layout=h` |
 
-图标 id 从 [`manifest.json`](https://x-cmd.com/iconbase/manifest.json) 查(键是
+图标 id 从 [`search-index.json`](https://x-cmd.com/iconbase/search-index.json) 查(键是
 `<cat>:<concept>` 或 `<cat>/v<n>:<concept>`)。更多案例在
 [象形合成 Gallery](https://x-cmd.com/iconbase/compose)。
 

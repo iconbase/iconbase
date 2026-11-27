@@ -28,7 +28,7 @@ https://x-cmd.com/iconbase/i/<cat>/<concept>.svg
 ## 3. 工作流程
 
 1. **定分类**:先想清楚这个概念属于哪一族(云服务 → `aws`/`azure`/`gcp`;数据库 → `db`;安全 → `sec`;图表 → `vis`;生活概念 → `travel`/`food`/`weather`…)。分类决定许可怎么算,别混。
-2. **查键名**:`https://x-cmd.com/iconbase/manifest.json` 是全库清单(英文 id + 结构信息),`manifest.zh.json` 是中文名;也可以在站点上搜。
+2. **查键名**:`https://x-cmd.com/iconbase/search-index.json` 是全库瘦索引(每枚的 id / 英文名 / 归属的片),`names.zh.json` 是中文名,`concepts.json` 是别名与跨厂商归一的概念;也可以在站点上搜,或用命令行 `iconbase search <词>`。
 3. **取文件**:`curl` 那个 `i/<cat>/<concept>.svg` 就行,或者用 data URI 接口一次性拿多个。
 4. **落到文档里**:markdown 里用 `![](https://x-cmd.com/iconbase/i/<cat>/<concept>.svg)`;HTML/代码里直接内联 SVG(自包含,无外部依赖)。
 5. **核许可**:自绘的随便用(Apache-2.0,保留 NOTICE);厂商标识原样用、不改色不改形;品牌图形看清单里的许可结论,`caution` 的只做指示性引用。
@@ -104,6 +104,8 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 - 键名带版本时路径跟着走:`infra/v0:server` → `i/infra/v0/server.svg`。
 - 别名与具体版本两个键都取得到,别名指向的就是推荐版本那份文件。
 - 想把图标内嵌进 SVG、PPT 或 HTML,用 data URI 接口(`ids=` 逗号分隔)。
+- 想看一枚图标的完整信息(名字、许可、出处、相关图标),打开 `https://x-cmd.com/iconbase/icon/<键名>` —— 那是服务端渲染的,agent 也能直接读。
+- 命令行(`iconbase`):`search <词>`、`get <键名>`、`compose <方式> --icon X --rl Y`、`icons --ids a,b`。
 
 **要合成**(角标、图内嵌图、图文并排)用 draw 的象形合成接口 —— `https://x-cmd.com/iconbase/draw/badge?icon=infra:disk&text=x2` 之类;合成的 id 本身也可以再当图标用。象形合成引擎的完整用法见 x-cmd/draw 的 skill。
 
@@ -131,11 +133,12 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 
 角标也能**挂图标**:`@` 后面写图标 id。图标角标**不带圆框** —— 图形自己的形状就是底,
 融进底图里(文字角标是深底白字,反过来:再套一圈底就把主体盖住了)。
-角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂:
+角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂;还有一位 `c=` —— 压在图形正中(不是角上):
 `?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3&scale=0.8` —— 收藏、国别、计数,各占一角。
+正中的那位:`?icon=infra/v0:server&c=@common/v0:flag` —— 旗压在图形正中。
 `scale=` 调角标大小(0.5~2)。
 
-**哪些图标适合被合成** —— 清单(manifest.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
+**哪些图标适合被合成** —— 分片清单(manifest.<分类>.<片号>.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
 角标那种是公式化的(任何图标都能挂一枚计数),不用查清单。
 
 两枚图标并成一枚时,`d=` 是它们**重心之间**的距离,单位是 icon 大小:

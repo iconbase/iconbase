@@ -123,8 +123,10 @@ compose.json      哪些图标适合被合成(上下 / 框内嵌图)—— 构�
 | 东西 | URL |
 | --- | --- |
 | 图标原文件 | `https://x-cmd.com/iconbase/i/<cat>/<concept>.svg` |
-| 全库清单(英文原版 + 结构信息) | `https://x-cmd.com/iconbase/manifest.json` |
-| 中文翻译包 | `https://x-cmd.com/iconbase/manifest.zh.json` |
+| 全库瘦索引(每枚的 id / 英文名 / 归属的片) | `https://x-cmd.com/iconbase/search-index.json` |
+| 中文名字表 | `https://x-cmd.com/iconbase/names.zh.json` |
+| 语义表(别名、跨厂商归一的概念、百搭词) | `https://x-cmd.com/iconbase/concepts.json` |
+| 单枚图标的页面(服务端渲染,带许可与出处) | `https://x-cmd.com/iconbase/icon/<键名>` |
 | 分类索引 | `https://x-cmd.com/iconbase/index.json` |
 | 按 id 取 data URI(给程序用) | `https://x-cmd.com/iconbase/api/icons.json?ids=<cat>:<concept>,…` |
 
