@@ -199,6 +199,9 @@ curl 'https://x-cmd.com/iconbase/api/icons.json?ids=infra:server,db:locked'
 融进底图里(文字角标是深底白字,反过来:再套一圈底就把主体盖住了)。
 角点键 `lu= ru= ll= rl=` 各挂一枚,能混着挂:
 `?icon=infra/v0:server&ll=@common/v0:star&rl=@common/v0:flag&ru=3&scale=0.8` —— 收藏、国别、计数,各占一角。
+
+还有一位 `c=` —— 角标压在图形**正中**(不是角上):
+`?icon=infra/v0:server&c=@common/v0:flag`。它跟四角不冲突,想同时挂就一起给。
 `scale=` 调角标大小(0.5~2)。
 
 **哪些图标适合被合成** —— 清单(manifest.json)的 `compose` 字段写着:上下、框内嵌图这两种搭配。
